@@ -754,16 +754,19 @@ body {
 .answer-box strong,
 .exam-facts span,
 .exam-field,
-.student-name-display,
 .timer-value,
 .quiz-count strong,
 .question-title,
-.option-text,
 .exam-result h2,
 .result-score-value strong,
 .result-breakdown strong,
 .review-item-heading strong {
   color: #29394b;
+}
+
+.student-name-display,
+.option-text {
+  color: #ffffff !important;
 }
 
 .floating-math,
@@ -1350,7 +1353,6 @@ body {
 .about-stat p,
 .exam-facts span,
 .exam-field small,
-.student-name-display,
 .student-level-display,
 .quiz-count,
 .quiz-count strong,
@@ -1367,6 +1369,10 @@ body {
 .review-answer,
 .exam-bottom-note {
   color: #665c6b;
+}
+
+.student-name-display {
+  color: #ffffff !important;
 }
 
 .art-label i,
@@ -1647,11 +1653,14 @@ body {
 }
 
 .question-title,
-.option-text,
 .review-prompt,
 .review-answer,
 .result-review summary {
   color: #413844;
+}
+
+.option-text {
+  color: #ffffff !important;
 }
 
 .question-option {
@@ -1998,7 +2007,6 @@ body {
 .about-stat p,
 .exam-facts span,
 .exam-field small,
-.student-name-display,
 .student-level-display,
 .quiz-count,
 .quiz-count strong,
@@ -2015,6 +2023,10 @@ body {
 .review-answer,
 .exam-bottom-note {
   color: #b7adbd;
+}
+
+.student-name-display {
+  color: #ffffff !important;
 }
 
 .floating-math {
@@ -2252,7 +2264,7 @@ body {
 }
 
 .option-text {
-  color: #f0eaf3;
+  color: #ffffff !important;
 }
 
 .option-key {
@@ -2647,15 +2659,18 @@ body {
 .solution-problem strong,
 .solution-step strong,
 .exam-field,
-.student-name-display,
 .timer-value,
 .question-title,
-.option-text,
 .exam-result h2,
 .result-score-value strong,
 .result-breakdown strong,
 .review-item-heading strong {
   color: #29394b;
+}
+
+.student-name-display,
+.option-text {
+  color: #ffffff !important;
 }
 
 .answer-box {
