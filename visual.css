@@ -2205,6 +2205,23 @@ header.topbar .dashboard-open:focus-visible {
     display: flex;
   }
 
+  .has-side-panel header.topbar {
+    width: calc(100% + 252px);
+    max-width: none;
+    margin: 0 0 0 -252px;
+    padding-left: 18px;
+    padding-right: 24px;
+  }
+
+  .has-side-panel header.topbar .brand {
+    padding-left: 0;
+  }
+
+  .has-side-panel header.topbar .brand-logo {
+    width: 210px;
+    max-height: 50px;
+  }
+
   .has-side-panel header.topbar .main-nav {
     display: none !important;
   }
