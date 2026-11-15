@@ -235,6 +235,114 @@ header.topbar {
   background: transparent;
   -webkit-backdrop-filter: blur(14px) saturate(140%);
   backdrop-filter: blur(14px) saturate(140%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Animated math background in navbar */
+.nav-math-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.math-float {
+  position: absolute;
+  top: var(--y, 50%);
+  right: -100px;
+  font-family: 'STIX Two Math', 'Poppins', serif;
+  font-weight: 700;
+  font-size: var(--size, 1.5rem);
+  color: var(--orange);
+  opacity: 0.08;
+  white-space: nowrap;
+  animation: math-float-right-to-left var(--dur, 20s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  text-shadow: 0 0 8px rgba(201, 150, 90, 0.3);
+  filter: drop-shadow(0 2px 4px rgba(201, 150, 90, 0.15));
+}
+
+.math-float:nth-child(odd) {
+  color: var(--orange-light);
+  opacity: 0.06;
+}
+
+.math-float:nth-child(3n) {
+  color: var(--yellow);
+  opacity: 0.07;
+}
+
+.math-float:nth-child(4n) {
+  color: var(--blue);
+  opacity: 0.05;
+}
+
+@keyframes math-float-right-to-left {
+  0% {
+    transform: translateX(0) rotate(0deg) scale(1);
+    opacity: 0;
+  }
+  5% {
+    opacity: var(--opacity-start, 0.08);
+  }
+  50% {
+    transform: translateX(-50vw) rotate(180deg) scale(1.1);
+  }
+  95% {
+    opacity: var(--opacity-end, 0.08);
+  }
+  100% {
+    transform: translateX(-110vw) rotate(360deg) scale(1);
+    opacity: 0;
+  }
+}
+
+/* Subtle vertical floating motion */
+.math-float::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  animation: math-float-vertical 3s ease-in-out infinite;
+  animation-delay: calc(var(--delay) * -1);
+}
+
+@keyframes math-float-vertical {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .math-float {
+    animation: none !important;
+    opacity: 0.04;
+    right: 50%;
+    transform: translateX(50%);
+  }
+  .math-float::before {
+    animation: none !important;
+  }
+}
+
+/* Mobile: reduce count and size */
+@media (max-width: 760px) {
+  .math-float {
+    font-size: calc(var(--size, 1.5rem) * 0.7);
+    opacity: 0.05;
+  }
+  .math-float:nth-child(n+12) {
+    display: none;
+  }
+}
+
+header.topbar .brand,
+header.topbar .main-nav,
+header.topbar .dashboard-open,
+header.topbar .menu-toggle {
+  position: relative;
+  z-index: 1;
 }
 
 header.topbar .brand-logo {

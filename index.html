@@ -21,6 +21,29 @@
   <div class="page-glow page-glow-one"></div>
   <div class="page-glow page-glow-two"></div>
   <header class="topbar">
+    <!-- Animated math elements background -->
+    <div class="nav-math-bg" aria-hidden="true">
+      <span class="math-float" style="--i:0; --symbol:'∑'; --delay:0s; --y:10%; --size:1.8rem; --dur:18s;">∑</span>
+      <span class="math-float" style="--i:1; --symbol:'π'; --delay:2s; --y:25%; --size:1.5rem; --dur:22s;">π</span>
+      <span class="math-float" style="--i:2; --symbol:'√'; --delay:4s; --y:45%; --size:1.6rem; --dur:20s;">√</span>
+      <span class="math-float" style="--i:3; --symbol:'∫'; --delay:6s; --y:65%; --size:1.7rem; --dur:24s;">∫</span>
+      <span class="math-float" style="--i:4; --symbol:'±'; --delay:8s; --y:80%; --size:1.4rem; --dur:19s;">±</span>
+      <span class="math-float" style="--i:5; --symbol:'∞'; --delay:10s; --y:15%; --size:1.5rem; --dur:21s;">∞</span>
+      <span class="math-float" style="--i:6; --symbol:'÷'; --delay:12s; --y:35%; --size:1.6rem; --dur:23s;">÷</span>
+      <span class="math-float" style="--i:7; --symbol:'×'; --delay:14s; --y:55%; --size:1.5rem; --dur:17s;">×</span>
+      <span class="math-float" style="--i:8; --symbol:'='; --delay:16s; --y:70%; --size:1.4rem; --dur:25s;">=</span>
+      <span class="math-float" style="--i:9; --symbol:'≠'; --delay:18s; --y:30%; --size:1.5rem; --dur:20s;">≠</span>
+      <span class="math-float" style="--i:10; --symbol:'≤'; --delay:1s; --y:50%; --size:1.4rem; --dur:22s;">≤</span>
+      <span class="math-float" style="--i:11; --symbol:'≥'; --delay:3s; --y:75%; --size:1.5rem; --dur:18s;">≥</span>
+      <span class="math-float" style="--i:12; --symbol:'≈'; --delay:5s; --y:20%; --size:1.4rem; --dur:24s;">≈</span>
+      <span class="math-float" style="--i:13; --symbol:'⊂'; --delay:7s; --y:40%; --size:1.6rem; --dur:19s;">⊂</span>
+      <span class="math-float" style="--i:14; --symbol:'∈'; --delay:9s; --y:60%; --size:1.5rem; --dur:21s;">∈</span>
+      <span class="math-float" style="--i:15; --symbol:'∉'; --delay:11s; --y:85%; --size:1.4rem; --dur:23s;">∉</span>
+      <span class="math-float" style="--i:16; --symbol:'∪'; --delay:13s; --y:12%; --size:1.5rem; --dur:20s;">∪</span>
+      <span class="math-float" style="--i:17; --symbol:'∩'; --delay:15s; --y:32%; --size:1.4rem; --dur:22s;">∩</span>
+      <span class="math-float" style="--i:18; --symbol:'⊥'; --delay:17s; --y:58%; --size:1.6rem; --dur:18s;">⊥</span>
+      <span class="math-float" style="--i:19; --symbol:'∠'; --delay:19s; --y:78%; --size:1.5rem; --dur:24s;">∠</span>
+    </div>
     <a class="brand" href="index.html" aria-label="Rəna Rəcəbova.az ana səhifə">
       <img class="brand-logo" src="nav_logo.png" alt="">
     </a>
@@ -168,7 +191,6 @@
           <div class="mode-content active" data-content="type">
             <label class="sr-only" for="problem-input">Riyaziyyat məsələnizi yazın</label>
             <textarea id="problem-input" placeholder="Məsəlini bütöv yaz: Aydanın 6 alması var. 3-nü yedi. Neçə alması qaldı?&#10;Tənlik də yaza bilərsən: 2x + 5 = 13"></textarea>
-            <div class="input-hint"><span>İpucu</span> Söz məsələnən tam mətnini daxil et ki, addım-addım vizual izah hazırlansın.</div>
           </div>
           <div class="mode-content" data-content="draw">
             <div class="draw-toolbar"><span>Burada yaz və ya çək</span><button class="clear-canvas" type="button">Təmizlə</button></div>
@@ -187,7 +209,7 @@
             <button class="recognize-button image-recognize" type="button" hidden>✧ &nbsp;Şəkildəki yazını tanı</button>
           </div>
           <div class="inline-error" role="alert" hidden></div>
-          <div class="solve-row"><span class="privacy-note"><span>◈</span> Yazılı məsələnin mətni təhlil üçün xarici xidmətə göndərilir</span><button type="button" class="solve-button">Həll yolunu göstər <span>→</span></button></div>
+          <div class="solve-row"><button type="button" class="solve-button">Həll yolunu göstər <span>→</span></button></div>
         </div>
 
         <div class="result-panel" aria-live="polite">
