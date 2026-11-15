@@ -39,28 +39,42 @@
 
   <main>
     <section class="games-section" id="oyunlar" aria-labelledby="games-title">
-      <div class="games-heading">
-        <div>
-          <div class="eyebrow section-eyebrow"><span class="eyebrow-dot"></span> RİYAZİYYAT OYUNLARI</div>
-          <h1 id="games-title">Oyna, düşün, <span>irəlilə.</span></h1>
+      <div class="games-poster">
+        <div class="games-poster-copy">
+          <div class="eyebrow section-eyebrow"><span class="eyebrow-dot"></span> RİYAZİYYAT OYUNLARI · XÜSUSİ TƏKLİF</div>
+          <h1 id="games-title">Rekordu yenilə,<span>15% endirim qazan!</span></h1>
+          <p>45 saniyəlik oyunlarda xalını artır, öz rekordunu qır və mükafat uğrunda yarış.</p>
+          <a class="games-poster-action" href="#game-cards">Oyuna başla <span aria-hidden="true">→</span></a>
         </div>
-        <p>Qısa oyunlarla hesabını sürətləndir, məntiqini yoxla və xalını artır.</p>
+        <div class="games-poster-badge" aria-label="15 faiz endirim">
+          <span>REKORDUNU QIR</span>
+          <strong>15<small>%</small></strong>
+          <b>ENDİRİM</b>
+        </div>
+        <span class="games-poster-math" aria-hidden="true">∑ &nbsp; × &nbsp; √</span>
       </div>
-      <div class="games-grid" role="group" aria-label="Oyun seç">
-        <button class="game-card" type="button" data-game-start="sprint">
-          <span class="game-card-icon" aria-hidden="true">±</span><span class="game-card-tag">45 saniyə · sürət</span>
+      <div class="games-grid-heading">
+        <div><span>3 QISA RİYAZİYYAT OYUNU</span><h3>Oyununu seç, başla!</h3></div>
+        <span class="games-grid-note"><i aria-hidden="true"></i> 45 saniyəlik raundlar</span>
+      </div>
+      <div class="games-grid" id="game-cards" role="group" aria-label="Oyun seç">
+        <button class="game-card" type="button" data-game-start="sprint" data-mark="±">
+          <span class="game-card-top"><span class="game-card-icon" aria-hidden="true">±</span><span class="game-card-number">01 <i>/ 03</i></span></span>
+          <span class="game-card-tag">45 saniyə · sürət</span>
           <strong>Hesab sprinti</strong><span class="game-card-copy">Əməliyyatları mümkün qədər tez həll et.</span>
-          <span class="game-card-action">Oyna <span aria-hidden="true">→</span></span>
+          <span class="game-card-action">Oyuna başla <span aria-hidden="true">→</span></span>
         </button>
-        <button class="game-card" type="button" data-game-start="equation">
-          <span class="game-card-icon" aria-hidden="true">x = ?</span><span class="game-card-tag">45 saniyə · cəbr</span>
+        <button class="game-card" type="button" data-game-start="equation" data-mark="x = ?">
+          <span class="game-card-top"><span class="game-card-icon" aria-hidden="true">x = ?</span><span class="game-card-number">02 <i>/ 03</i></span></span>
+          <span class="game-card-tag">45 saniyə · cəbr</span>
           <strong>Tənlik ustası</strong><span class="game-card-copy">x-in qiymətini tap, tənlikləri aç.</span>
-          <span class="game-card-action">Oyna <span aria-hidden="true">→</span></span>
+          <span class="game-card-action">Oyuna başla <span aria-hidden="true">→</span></span>
         </button>
-        <button class="game-card" type="button" data-game-start="fractions">
-          <span class="game-card-icon" aria-hidden="true">½</span><span class="game-card-tag">45 saniyə · kəsrlər</span>
+        <button class="game-card" type="button" data-game-start="fractions" data-mark="½">
+          <span class="game-card-top"><span class="game-card-icon" aria-hidden="true">½</span><span class="game-card-number">03 <i>/ 03</i></span></span>
+          <span class="game-card-tag">45 saniyə · kəsrlər</span>
           <strong>Kəsr dueli</strong><span class="game-card-copy">İki kəsri müqayisə et, böyüyünü seç.</span>
-          <span class="game-card-action">Oyna <span aria-hidden="true">→</span></span>
+          <span class="game-card-action">Oyuna başla <span aria-hidden="true">→</span></span>
         </button>
       </div>
       <div class="game-arena" hidden aria-labelledby="game-title">

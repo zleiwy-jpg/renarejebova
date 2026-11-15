@@ -1,19 +1,19 @@
 :root {
   color-scheme: dark;
-  --black: #1A1A1A;
-  --orange: #FF9800;
-  --orange-light: #FFB74D;
-  --gray: #424242;
-  --yellow: #FFD54F;
-  --cream: #F4EEE4;
-  --text-muted: #B9AE9D;
+  --black: #191C1A;
+  --orange: #C9965A;
+  --orange-light: #E3C18E;
+  --gray: #292D2A;
+  --yellow: #D6C9A6;
+  --cream: #F1ECE2;
+  --text-muted: #B0B2A8;
   --bg: var(--black);
   --surface: var(--gray);
-  --line: rgba(255, 152, 0, .24);
+  --line: rgba(198, 180, 145, .18);
   --text: var(--cream);
   --muted: var(--text-muted);
-  --blue: var(--orange);
-  --purple: var(--yellow);
+  --blue: #9AB6AA;
+  --purple: #B6A8C4;
 }
 
 html,
@@ -24,7 +24,8 @@ body {
 
 body {
   background-image:
-    radial-gradient(ellipse at 82% 10%, rgba(255, 152, 0, .12), transparent 34%),
+    radial-gradient(ellipse at 82% 10%, rgba(201, 150, 90, .07), transparent 34%),
+    radial-gradient(ellipse at 12% 72%, rgba(116, 145, 130, .045), transparent 38%),
     linear-gradient(180deg, var(--black), var(--black));
 }
 
@@ -187,11 +188,11 @@ body {
 .question-option,
 .result-breakdown > div,
 .review-item {
-  border-color: rgba(255, 152, 0, .2);
+  border-color: rgba(198, 180, 145, .18);
   color: var(--orange-light);
   background-color: var(--gray);
-  background-image: linear-gradient(145deg, rgba(66, 66, 66, .96), rgba(26, 26, 26, .96));
-  box-shadow: 0 14px 36px rgba(26, 26, 26, .55), inset 0 1px rgba(255, 183, 77, .08);
+  background-image: linear-gradient(145deg, rgba(45, 50, 46, .97), rgba(34, 38, 35, .97));
+  box-shadow: 0 14px 36px rgba(9, 12, 10, .3), inset 0 1px rgba(227, 193, 142, .045);
 }
 
 .art-card {
@@ -588,10 +589,10 @@ body {
 
 .lesson-chat-prompt,
 .lesson-chat-panel {
-  border-color: rgba(255, 152, 0, .35);
+  border-color: rgba(198, 180, 145, .22);
   color: var(--orange-light);
   background-color: var(--black);
-  box-shadow: 0 18px 48px rgba(26, 26, 26, .8);
+  box-shadow: 0 18px 48px rgba(8, 11, 9, .52);
 }
 
 .lesson-chat-prompt::after,
@@ -599,7 +600,7 @@ body {
 .lesson-chat-suggestions button,
 .lesson-chat-close,
 .lesson-chat-form {
-  border-color: rgba(255, 152, 0, .25);
+  border-color: rgba(198, 180, 145, .16);
   color: var(--orange-light);
   background-color: var(--gray);
 }
@@ -626,7 +627,7 @@ body {
 }
 
 .lesson-chat-message {
-  border-color: rgba(255, 152, 0, .2);
+  border-color: rgba(198, 180, 145, .15);
   background-color: var(--gray);
 }
 
@@ -659,7 +660,9 @@ body {
 .page-loader {
   color: var(--orange-light);
   background-color: var(--black);
-  background-image: radial-gradient(ellipse at center, rgba(255, 152, 0, .12), var(--black) 68%);
+  background-image:
+    radial-gradient(ellipse at 50% 30%, rgba(201, 150, 90, .09), transparent 42%),
+    radial-gradient(ellipse at 82% 78%, rgba(116, 145, 130, .06), transparent 40%);
 }
 
 .loader-orbit,
@@ -837,7 +840,7 @@ body * {
 .result-breakdown > div,
 .review-item {
   background-color: var(--gray) !important;
-  background-image: linear-gradient(145deg, rgba(66, 66, 66, .96), rgba(26, 26, 26, .96)) !important;
+  background-image: linear-gradient(145deg, rgba(45, 50, 46, .97), rgba(34, 38, 35, .97)) !important;
 }
 
 .art-orbit,
