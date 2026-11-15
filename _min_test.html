@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#x { background-image: linear-gradient(red, blue); width: 100px; height: 40px; }
+#y { background: linear-gradient(red, blue); width: 100px; height: 40px; }
+</style>
+</head>
+<body>
+<div id="x"></div>
+<div id="y"></div>
+<script>
+const o = [];
+for (const id of ["x", "y"]) { o.push(id + ": " + getComputedStyle(document.getElementById(id)).backgroundImage); }
+const pre = document.createElement("pre");
+pre.textContent = "DIAG-START\n" + o.join("\n") + "\nDIAG-END";
+document.body.append(pre);
+</script>
+</body>
+</html>
