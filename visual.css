@@ -2425,7 +2425,7 @@ header.topbar .dashboard-open:focus-visible {
   place-items: center;
   color: #ffc072;
   font: 800 15px/1 var(--display, inherit);
-  text-shadow: 0 0 12px rgba(255, 152, 0, .75);
+  text-shadow: 0 0 12px rgba(255, 152, 0, .75) !important;
   animation: busy-orbit 4.6s linear infinite;
 }
 
@@ -2445,13 +2445,9 @@ header.topbar .dashboard-open:focus-visible {
   margin: 0 0 8px;
   font: 800 21px/1.15 var(--display, inherit);
   letter-spacing: -.3px;
-  background: linear-gradient(100deg, #ffe3b6, #ff9800 42%, #ffe3b6);
-  background-size: 220% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation: busy-shimmer 2.8s linear infinite;
+  color: #ffd9a3;
+  -webkit-text-fill-color: #ffd9a3;
+  animation: busy-title-glow 2.6s ease-in-out infinite;
 }
 
 .busy-copy {
@@ -2489,9 +2485,9 @@ header.topbar .dashboard-open:focus-visible {
   to { transform: rotate(360deg) translateX(52px) rotate(-360deg); }
 }
 
-@keyframes busy-shimmer {
-  from { background-position: 0% 50%; }
-  to { background-position: 200% 50%; }
+@keyframes busy-title-glow {
+  0%, 100% { color: #ffd9a3; -webkit-text-fill-color: #ffd9a3; opacity: 1; }
+  50% { color: #fff6e6; -webkit-text-fill-color: #fff6e6; opacity: .92; }
 }
 
 @keyframes busy-dots {
@@ -2511,7 +2507,6 @@ header.topbar .dashboard-open:focus-visible {
   }
 
   .busy-title {
-    background: none;
     -webkit-text-fill-color: #ffd9a3;
     color: #ffd9a3;
   }
