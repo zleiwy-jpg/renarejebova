@@ -189,7 +189,7 @@ body {
 .result-breakdown > div,
 .review-item {
   border-color: rgba(198, 180, 145, .18);
-  color: var(--orange-light);
+  color: var(--cream);
   background-color: var(--gray);
   background-image: linear-gradient(145deg, rgba(45, 50, 46, .97), rgba(34, 38, 35, .97));
   box-shadow: 0 14px 36px rgba(9, 12, 10, .3), inset 0 1px rgba(227, 193, 142, .045);
@@ -601,16 +601,21 @@ body {
 .lesson-chat-close,
 .lesson-chat-form {
   border-color: rgba(198, 180, 145, .16);
-  color: var(--orange-light);
+  color: var(--cream);
   background-color: var(--gray);
 }
 
 .lesson-chat-header h2,
-.lesson-chat-header p,
-.lesson-chat-online,
-.lesson-chat-message,
 .lesson-chat-suggestions button {
-  color: var(--orange-light);
+  color: var(--cream);
+}
+
+.lesson-chat-header p {
+  color: var(--text-muted);
+}
+
+.lesson-chat-online {
+  color: var(--blue);
 }
 
 .lesson-chat-avatar {
@@ -629,6 +634,7 @@ body {
 .lesson-chat-message {
   border-color: rgba(198, 180, 145, .15);
   background-color: var(--gray);
+  color: var(--cream);
 }
 
 .lesson-chat-message.is-user {
@@ -905,16 +911,22 @@ body * {
 }
 
 .lesson-chat-messages {
-  background-color: var(--black) !important;
+  background-color: #1D211F !important;
 }
 
 .lesson-chat-prompt,
-.lesson-chat-panel,
-.lesson-chat-header,
 .lesson-chat-close,
 .lesson-chat-suggestions button,
 .lesson-chat-message {
-  color: var(--orange-light) !important;
+  color: var(--cream) !important;
+}
+
+.lesson-chat-panel {
+  color: var(--cream) !important;
+}
+
+.lesson-chat-online {
+  color: var(--blue) !important;
 }
 
 .lesson-chat-online span {
