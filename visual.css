@@ -2206,9 +2206,6 @@ header.topbar .dashboard-open:focus-visible {
   }
 
   .has-side-panel header.topbar {
-    width: calc(100% + 252px);
-    max-width: none;
-    margin: 0 0 0 -252px;
     padding-left: 18px;
     padding-right: 24px;
   }
@@ -2242,5 +2239,55 @@ header.topbar .dashboard-open:focus-visible {
 
   body {
     padding-left: 0;
+  }
+}
+
+/* ---- Scroll-aware fixed header ---- */
+.topbar-spacer {
+  width: 100%;
+  height: 0;
+}
+
+.has-scroll-header header.topbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 60;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  transition:
+    transform .42s cubic-bezier(.22, 1, .36, 1),
+    background-color .3s ease,
+    box-shadow .3s ease;
+  will-change: transform;
+}
+
+.has-scroll-header header.topbar.is-nav-scrolled {
+  background-color: rgba(24, 27, 25, .84);
+  box-shadow: 0 12px 34px rgba(0, 0, 0, .26);
+}
+
+.has-scroll-header header.topbar.is-nav-hidden {
+  pointer-events: none;
+  transform: translateY(calc(-100% - 2px));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .has-scroll-header header.topbar {
+    transition: none;
+  }
+}
+
+@media print {
+  .has-scroll-header header.topbar {
+    position: static;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .topbar-spacer {
+    display: none;
   }
 }

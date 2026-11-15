@@ -120,3 +120,61 @@ if (menuToggle && mainNav) {
     if (event.key === "Escape") closeMenu();
   });
 }
+
+// Scroll-aware fixed header: hide on scroll down, reveal on scroll up.
+const pageTopbar = document.querySelector("header.topbar");
+
+if (pageTopbar) {
+  const topbarSpacer = document.createElement("div");
+  topbarSpacer.className = "topbar-spacer";
+  topbarSpacer.setAttribute("aria-hidden", "true");
+  pageTopbar.before(topbarSpacer);
+
+  const syncTopbarSpace = () => {
+    topbarSpacer.style.height = `${pageTopbar.offsetHeight}px`;
+  };
+
+  syncTopbarSpace();
+
+  if ("ResizeObserver" in window) {
+    new ResizeObserver(syncTopbarSpace).observe(pageTopbar);
+  } else {
+    window.addEventListener("resize", syncTopbarSpace);
+  }
+
+  document.documentElement.classList.add("has-scroll-header");
+
+  let lastScrollY = Math.max(0, window.scrollY);
+  let scrollTicking = false;
+
+  const updateTopbar = () => {
+    scrollTicking = false;
+    const currentY = Math.max(0, window.scrollY);
+    const delta = currentY - lastScrollY;
+    const headerHeight = pageTopbar.offsetHeight;
+
+    pageTopbar.classList.toggle("is-nav-scrolled", currentY > 8);
+
+    if (mainNav && mainNav.classList.contains("open")) {
+      pageTopbar.classList.remove("is-nav-hidden");
+    } else if (currentY <= headerHeight + 20) {
+      pageTopbar.classList.remove("is-nav-hidden");
+    } else if (delta > 3) {
+      pageTopbar.classList.add("is-nav-hidden");
+    } else if (delta < -1) {
+      pageTopbar.classList.remove("is-nav-hidden");
+    }
+
+    lastScrollY = currentY;
+  };
+
+  window.addEventListener("scroll", () => {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    window.requestAnimationFrame(updateTopbar);
+  }, { passive: true });
+
+  pageTopbar.addEventListener("focusin", () => {
+    pageTopbar.classList.remove("is-nav-hidden");
+  });
+}
