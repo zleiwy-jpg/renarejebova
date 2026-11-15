@@ -1059,6 +1059,8 @@ function isMathExpression(problem) {
   return /^[\d\s.,+\-−–×*/÷^()=xXπpieE]*$/.test(problem);
 }
 
+const SERVER_BUSY_MESSAGE = "Valeh serverdə işlər aparır, bir azdan açılacaq :)";
+
 async function analyzeWordProblem(problem) {
   let response;
   try {
@@ -1068,12 +1070,12 @@ async function analyzeWordProblem(problem) {
       body: JSON.stringify({ problem })
     });
   } catch {
-    throw new Error("Serverə qoşulmaq mümkün olmadı. Saytı serve.ps1 faylı ilə başladıb yenidən yoxla.");
+    throw new Error(SERVER_BUSY_MESSAGE);
   }
   const payload = await response.json().catch(() => ({}));
   if (!response.ok) {
-    if (response.status === 404) {
-      throw new Error("Məsələ həlli serveri işlək deyil. README-dəki .\\serve.ps1 -Port 8001 əmrini başladıb saytı 8001 portunda aç.");
+    if (response.status === 404 || response.status === 503) {
+      throw new Error(SERVER_BUSY_MESSAGE);
     }
     throw new Error(payload.error || "Məsələni təhlil etmək mümkün olmadı.");
   }
