@@ -513,8 +513,9 @@ body {
 
 header.topbar {
   border-bottom: 1px solid rgba(255, 183, 77, .12);
-  background: rgba(26, 26, 26, .94);
-  backdrop-filter: blur(12px);
+  background: transparent;
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(140%);
 }
 
 header.topbar .brand-logo {
