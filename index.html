@@ -12,38 +12,12 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="sinaq.css">
   <link rel="stylesheet" href="theme.css">
-  <link rel="stylesheet" href="loading.css">
   <link rel="stylesheet" href="palette.css">
   <link rel="stylesheet" href="mix.css">
   <link rel="stylesheet" href="typography.css">
   <link rel="stylesheet" href="visual.css">
-  <script src="loading.js" defer></script>
 </head>
 <body>
-  <div class="page-loader">
-    <div class="loader-background" aria-hidden="true">
-      <span class="loader-float loader-float-one">π ≈ 3.14</span>
-      <span class="loader-float loader-float-two">√144 = 12</span>
-      <span class="loader-float loader-float-three">a² + b² = c²</span>
-      <span class="loader-float loader-float-four">S = a × b</span>
-      <span class="loader-float loader-float-five">∫ x dx</span>
-      <span class="loader-float loader-float-six">x² + y²</span>
-    </div>
-    <div class="loader-content">
-      <img class="loader-logo" src="nav_logo.png" alt="Rəna Rəcəbova">
-      <h1 class="loader-title">Riyaziyyatın aydın həlli</h1>
-      <p class="loader-subtitle">Məsələləri addım-addım öyrən.</p>
-      <div class="loader-formula">2x + 5 = 13</div>
-      <div class="loader-progress-info">
-        <span class="loader-status" role="status" aria-live="polite">Səhifə hazırlanır...</span>
-        <span class="loader-percent">0%</span>
-      </div>
-      <div class="loader-progress" role="progressbar" aria-label="Səhifənin yüklənmə faizi" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
-        <span class="loader-progress-fill"></span>
-      </div>
-      <p class="loader-footer">DÜŞÜN · HƏLL ET · ANLA</p>
-    </div>
-  </div>
   <div class="page-glow page-glow-one"></div>
   <div class="page-glow page-glow-two"></div>
   <header class="topbar">
@@ -120,7 +94,7 @@
           <span class="game-card-top"><span class="game-card-icon" aria-hidden="true">±</span><span class="game-card-number">01 <i>/ 03</i></span></span>
           <span class="game-card-tag">45 saniyə · sürət</span>
           <strong>Hesab sprinti</strong>
-          <span class="game-card-copy">Əməliyyatları mümkün qədər tez həll et.</span>
+          <span class="game-card-copy">Əməliyyatları mümküncə qədər tez həll et.</span>
           <span class="game-card-action">Oyuna başla <span aria-hidden="true">→</span></span>
         </button>
         <button class="game-card" type="button" data-game-start="equation" data-mark="x = ?">
@@ -149,7 +123,7 @@
             <div class="game-stat"><span>Vaxt</span><strong class="game-time" role="timer" aria-label="Qalan vaxt" aria-live="off">00:45</strong></div>
             <div class="game-stat"><span>Xal</span><strong class="game-score">0</strong></div>
           </div>
-          <button class="game-exit" type="button">Oyunlardan çıx</button>
+          <button class="game-exit" type="button">Oyunlardan çık</button>
         </div>
         <div class="game-progress" role="progressbar" aria-label="Qalan oyun vaxtı" aria-valuemin="0" aria-valuemax="45" aria-valuenow="45"><span></span></div>
         <div class="game-play">
@@ -194,12 +168,12 @@
           </div>
           <div class="mode-content active" data-content="type">
             <label class="sr-only" for="problem-input">Riyaziyyat məsələnizi yazın</label>
-            <textarea id="problem-input" placeholder="Məsələni bütöv yaz: Aydanın 6 alması var. 3-nü yedi. Neçə alması qaldı?&#10;Tənlik də yaza bilərsən: 2x + 5 = 13"></textarea>
-            <div class="input-hint"><span>İpucu</span> Söz məsələsinin tam mətnini daxil et ki, addım-addım vizual izah hazırlansın.</div>
+            <textarea id="problem-input" placeholder="Məsəlini bütöv yaz: Aydanın 6 alması var. 3-nü yedi. Neçə alması qaldı?&#10;Tənlik də yaza bilərsən: 2x + 5 = 13"></textarea>
+            <div class="input-hint"><span>İpucu</span> Söz məsələnən tam mətnini daxil et ki, addım-addım vizual izah hazırlansın.</div>
           </div>
           <div class="mode-content" data-content="draw">
             <div class="draw-toolbar"><span>Burada yaz və ya çək</span><button class="clear-canvas" type="button">Təmizlə</button></div>
-            <canvas class="drawing-canvas" aria-label="Məsələni çəkmək üçün rəsm sahəsi"></canvas>
+            <canvas class="drawing-canvas" aria-label="Məsələnı çəkmək üçün rəsm sahəsi"></canvas>
             <div class="input-hint">Barmağınla və ya siçanla yaz. Mətn tanınması üçün «Yazını tanı» düyməsinə bas.</div>
             <button class="recognize-button draw-recognize" type="button">✧ &nbsp;Yazını tanı</button>
           </div>
@@ -220,7 +194,7 @@
         <div class="result-panel" aria-live="polite">
           <div class="result-topline"><div><span class="result-icon">✳</span><span class="panel-title">Həll addımları</span></div><span class="ready-badge"><i></i> HAZIRDIR</span></div>
           <div class="result-body">
-            <div class="empty-state"><div class="empty-illustration"><div class="empty-orbit"></div><span>∑</span><i>✦</i><b>＋</b></div><h3>Həll burada canlanacaq</h3><p>Məsələni daxil et və hər addımın<br>qrafiklə necə açıldığını izlə.</p><div class="empty-line"></div><div class="empty-line short"></div></div>
+            <div class="empty-state"><div class="empty-illustration"><div class="empty-orbit"></div><span>∑</span><i>✦</i><b>＋</b></div><h3>Həll burada canlanacaq</h3><p>Məsəlini daxil et və hər addımın<br>qrafiklə necə açıldığını izlə.</p><div class="empty-line"></div><div class="empty-line short"></div></div>
             <div class="solution-state" hidden>
               <div class="solution-problem"><span class="mini-label">SƏNİN MƏSƏLƏN</span><strong></strong></div>
               <div class="steps-list"></div>
@@ -231,14 +205,13 @@
           <div class="graph-wrap" hidden><canvas class="solution-graph" aria-label="Məsələnin qrafiki"></canvas></div>
         </div>
       </div>
-
     </section>
 
     <section class="how-section" id="nece-isleyir">
       <div class="how-heading"><div class="eyebrow section-eyebrow"><span class="eyebrow-dot"></span> SADƏ, AŞKAR, ADDIM-ADDIM</div><h2>Başa düşmək üçün<br><span>üç kiçik addım.</span></h2></div>
       <div class="how-cards">
         <article class="how-card"><span class="card-number">01</span><div class="how-icon">⌨</div><h3>Məsələni göndər</h3><p>Yaz, lövhədə çək və ya şəklini əlavə et. Başlamaq üçün sənə uyğun olan yolu seç.</p></article>
-        <article class="how-card"><span class="card-number">02</span><div class="how-icon purple">◌</div><h3>Həllin gedişini izlə</h3><p>Hər addım ardıcıllıqla açılır. Düsturlar və qrafiklər mövzunu göz önünə gətirir.</p></article>
+        <article class="how-card"><span class="card-number">02</span><div class="how-icon purple">◌</div><h3>Hellingin gedişini izlə</h3><p>Hər addım ardıcıllıqla açılır. Düsturlar və qrafiklər mövzunu göz ö\ünə gətirir.</p></article>
         <article class="how-card"><span class="card-number">03</span><div class="how-icon mint">✳</div><h3>Özün də həll et</h3><p>Sadəcə cavabı görmə — hər addımın məntiqini anla və növbəti məsələyə hazır ol.</p></article>
       </div>
     </section>
@@ -252,21 +225,21 @@
       <div class="about-copy">
         <div class="eyebrow section-eyebrow" data-reveal="item"><span class="eyebrow-dot"></span> HAQQIMDA</div>
         <h2 id="about-title" data-reveal="item">Riyaziyyatı sevdirən müəllim — <span>Rəcəbova Rəna</span></h2>
-        <p class="about-intro" data-reveal="item">Hər kəsə məktəbdə “riyaziyyat çətindir” deyiblər. Amma mənim məqsədim bu fikri tamamilə dəyişməkdir. Çünki riyaziyyat sadəcə düsturlar və tənliklər deyil — o, məntiqi düşünmək, həyatı rəqəmlərin dili ilə anlamaq və ən əsası, hər hansı bir problemin həll yolunu tapmaq sənətidir.</p>
+        <p class="about-intro" data-reveal="item">Hər kəsə məktəbdə "riyaziyyat çətindir" deyiblər. Amma mənim məqsədim bu fikri tamamilə dəyişməkdir. Çünki riyaziyyat sadəcə düsturlar və tənliklər deyil — o, məntiqi düşünmək, həyatı rəqəmlərin dili ilə anlamaq və ən əsası, hər hansı bir problemin həll yolunu tapmaq sənətidir.</p>
         <div class="about-journey" data-reveal="item">
           <h3>Mənim yolum necə başladı?</h3>
           <div class="about-timeline">
             <article class="about-milestone">
               <span class="about-year">1985</span>
-              <p>Günəşli Naxçıvan torpağında dünyaya göz açdım. Riyaziyyata və elmə marağım Bakıda, Binəqədi rayonu 99 saylı orta məktəbdə oxuduğum illərdə formalaşdı.</p>
+              <p>Günəşli Naxçıvan torpağında dünyaya göz açdım. Riyaziyyata və elmə marağım Bakıda, Binəqədi rayonu 99 saylı orta məktəbin oxuduğum illər...</p>
             </article>
             <article class="about-milestone">
               <span class="about-year">2007</span>
-              <p>Məktəb illərindən məntiq məsələləri ən sevimli tapmacalarım idi. Bu sevgi məni pedaqoji fəaliyyətə gətirdi və dekabrın 1-dən 322 saylı tam orta məktəbdə riyaziyyat müəllimi kimi çalışmağa başladım.</p>
+              <p>Məktəb illərindən məntiq məsələləri ən sevimli tapmacalarım idi. Bu sevgi məni pedaqoji fəaliyyətə gətirdi və dekabrın 1-dən 322 saylı tam orta məktəbin riyaziyyat müəllimi kimi çalışmağa başladım.</p>
             </article>
           </div>
         </div>
-        <p class="about-experience" data-reveal="item">Artıq 19 ildir ki, hər gün eyni həvəslə sinfə daxil olur, yüzlərlə şagirdə riyaziyyatı sevdirir və onları gələcək uğurlarına hazırlayıram. Mənim üçün ən böyük mükafat — şagirdlərimin çətin bir məsələnin öhdəsindən gələndə gözlərində yaranan parıltı və “Mən bunu bacardım!” dedikləri andır.</p>
+        <p class="about-experience" data-reveal="item">Artıq 19 ildir ki, hər gün eyni həvəslə sinfə daxil olur, yüzlərlə şagirdə riyaziyyatı sevdirir və onları gələcək uğurları hazırlayıram. Mənim üçün ən böyük mükafat — şagirdlərimin çətin bir məsələnin öhdəsindən gələndə gözlərində yaranan parıltı və "Mən bunu bacardım!" dedikleri andır.</p>
         <blockquote class="about-quote" data-reveal="item">Dərslərimdə əzbərçilik yoxdur. Hər şagirdin fərdi xüsusiyyətlərini və qavrama tempini nəzərə alaraq, riyaziyyatı qorxulu yuxu yox, maraqlı bir kəşf yolçuluğuna çeviririk.</blockquote>
       </div>
     </section>
@@ -274,7 +247,7 @@
     <section class="about-stats" aria-label="Rəna Rəcəbovanın göstəriciləri" data-reveal data-statistics>
       <div class="about-stats-heading">
         <div class="eyebrow section-eyebrow"><span class="eyebrow-dot"></span> ƏMƏYİN NƏTİCƏSİ</div>
-        <h2>Təcrübə və uğurun <span>rəqəmləri.</span></h2>
+        <h2>Təcrübə və ugurun <span>rəqəmləri.</span></h2>
       </div>
       <div class="about-stats-grid">
         <article class="about-stat">

@@ -663,53 +663,6 @@ body {
   background-color: var(--orange-light);
 }
 
-.page-loader {
-  color: var(--orange-light);
-  background-color: var(--black);
-  background-image:
-    radial-gradient(ellipse at 50% 30%, rgba(201, 150, 90, .09), transparent 42%),
-    radial-gradient(ellipse at 82% 78%, rgba(116, 145, 130, .06), transparent 40%);
-}
-
-.loader-orbit,
-.loader-orbit-two {
-  border-color: rgba(255, 152, 0, .3);
-}
-
-.loader-axis {
-  stroke: rgba(255, 183, 77, .3);
-}
-
-.loader-parabola,
-.loader-symbol-root {
-  stroke: var(--orange);
-  color: var(--orange);
-}
-
-.loader-point,
-.loader-symbol,
-.loader-caption::before,
-.loader-caption strong::after {
-  fill: var(--yellow);
-  color: var(--yellow);
-  background-color: var(--yellow);
-}
-
-.loader-symbol-sigma,
-.loader-equation,
-.loader-caption {
-  color: var(--orange-light);
-}
-
-.loader-caption strong {
-  color: var(--orange-light);
-  text-shadow: none;
-}
-
-.loader-graph-glow {
-  filter: none;
-}
-
 .dashboard-dialog::backdrop {
   background-color: rgba(26, 26, 26, .88);
 }
