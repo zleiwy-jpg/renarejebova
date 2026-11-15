@@ -161,7 +161,7 @@ if (pageTopbar) {
       pageTopbar.classList.remove("is-nav-hidden");
     } else if (delta > 3) {
       pageTopbar.classList.add("is-nav-hidden");
-    } else if (delta < -1) {
+    } else if (delta < 0) {
       pageTopbar.classList.remove("is-nav-hidden");
     }
 
