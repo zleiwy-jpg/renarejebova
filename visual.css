@@ -2326,3 +2326,193 @@ header.topbar .dashboard-open:focus-visible {
     transition: none;
   }
 }
+
+/* ---- Server busy modal ---- */
+.busy-dialog {
+  width: min(360px, calc(100vw - 40px));
+  padding: 30px 26px 26px;
+  border: 1px solid rgba(255, 183, 77, .32);
+  border-radius: 22px;
+  color: #f6efe4;
+  background: radial-gradient(130% 120% at 50% 0%, rgba(52, 40, 26, .98), rgba(18, 16, 14, .99));
+  box-shadow: 0 34px 90px rgba(0, 0, 0, .65), inset 0 0 0 1px rgba(255, 255, 255, .045);
+  font-family: inherit;
+  text-align: center;
+  overflow: hidden;
+}
+
+.busy-dialog::backdrop {
+  background: rgba(6, 5, 4, .64);
+  -webkit-backdrop-filter: blur(7px);
+  backdrop-filter: blur(7px);
+}
+
+.busy-dialog[open] {
+  animation: busy-pop .5s cubic-bezier(.18, 1.3, .4, 1) both;
+}
+
+@keyframes busy-pop {
+  from { opacity: 0; transform: translateY(22px) scale(.9); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.busy-dialog-close {
+  position: absolute;
+  top: 12px;
+  right: 13px;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 50%;
+  color: #f0d9b5;
+  background: rgba(255, 255, 255, .07);
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color .2s ease, transform .3s ease;
+}
+
+.busy-dialog-close:hover,
+.busy-dialog-close:focus-visible {
+  background: rgba(255, 152, 0, .28);
+  transform: rotate(90deg);
+}
+
+.busy-anim {
+  position: relative;
+  width: 132px;
+  height: 132px;
+  margin: 2px auto 16px;
+  display: grid;
+  place-items: center;
+}
+
+.busy-ring {
+  position: absolute;
+  inset: 0;
+  border: 3px dashed rgba(255, 152, 0, .5);
+  border-radius: 50%;
+  animation: busy-spin 7s linear infinite;
+}
+
+.busy-ring::after {
+  position: absolute;
+  inset: 16px;
+  border: 2px solid rgba(255, 200, 120, .16);
+  border-top-color: rgba(255, 200, 120, .95);
+  border-radius: 50%;
+  content: "";
+  animation: busy-spin 1.5s linear infinite reverse;
+}
+
+.busy-core {
+  font-size: 46px;
+  line-height: 1;
+  filter: drop-shadow(0 8px 16px rgba(255, 152, 0, .4));
+  animation: busy-bob 1.7s ease-in-out infinite;
+}
+
+.busy-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  display: grid;
+  place-items: center;
+  color: #ffc072;
+  font: 800 15px/1 var(--display, inherit);
+  text-shadow: 0 0 12px rgba(255, 152, 0, .75);
+  animation: busy-orbit 4.6s linear infinite;
+}
+
+.busy-orbit-2 { animation-delay: -1.15s; }
+.busy-orbit-3 { animation-delay: -2.3s; }
+.busy-orbit-4 { animation-delay: -3.45s; }
+
+.busy-kicker {
+  margin: 0 0 9px;
+  color: rgba(255, 183, 77, .8);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: .24em;
+}
+
+.busy-title {
+  margin: 0 0 8px;
+  font: 800 21px/1.15 var(--display, inherit);
+  letter-spacing: -.3px;
+  background: linear-gradient(100deg, #ffe3b6, #ff9800 42%, #ffe3b6);
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: busy-shimmer 2.8s linear infinite;
+}
+
+.busy-copy {
+  margin: 0 0 18px;
+  color: #cdb99c;
+  font-size: 13.5px;
+}
+
+.busy-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.busy-dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--orange-light, #ffb74d);
+  animation: busy-dots 1.25s ease-in-out infinite;
+}
+
+.busy-dots i:nth-child(2) { animation-delay: .17s; }
+.busy-dots i:nth-child(3) { animation-delay: .34s; }
+
+@keyframes busy-spin { to { transform: rotate(360deg); } }
+
+@keyframes busy-bob {
+  0%, 100% { transform: translateY(-5px) scale(1); }
+  50% { transform: translateY(5px) scale(1.07); }
+}
+
+@keyframes busy-orbit {
+  from { transform: rotate(0deg) translateX(52px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(52px) rotate(-360deg); }
+}
+
+@keyframes busy-shimmer {
+  from { background-position: 0% 50%; }
+  to { background-position: 200% 50%; }
+}
+
+@keyframes busy-dots {
+  0%, 100% { transform: translateY(0); opacity: .4; }
+  50% { transform: translateY(-7px); opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .busy-dialog[open],
+  .busy-ring,
+  .busy-ring::after,
+  .busy-core,
+  .busy-orbit,
+  .busy-title,
+  .busy-dots i {
+    animation: none !important;
+  }
+
+  .busy-title {
+    background: none;
+    -webkit-text-fill-color: #ffd9a3;
+    color: #ffd9a3;
+  }
+}

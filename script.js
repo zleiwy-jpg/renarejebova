@@ -1059,7 +1059,42 @@ function isMathExpression(problem) {
   return /^[\d\s.,+\-−–×*/÷^()=xXπpieE]*$/.test(problem);
 }
 
-const SERVER_BUSY_MESSAGE = "Valeh serverdə işlər aparır, bir azdan açılacaq :)";
+let serverBusyDialog = null;
+
+function showServerBusyModal() {
+  if (!serverBusyDialog) {
+    serverBusyDialog = document.createElement("dialog");
+    serverBusyDialog.className = "busy-dialog";
+    serverBusyDialog.setAttribute("aria-labelledby", "busy-dialog-title");
+    serverBusyDialog.innerHTML = `
+      <button class="busy-dialog-close" type="button" aria-label="Bağla">×</button>
+      <div class="busy-anim" aria-hidden="true">
+        <span class="busy-ring"></span>
+        <span class="busy-core">🛠️</span>
+        <span class="busy-orbit busy-orbit-1">＋</span>
+        <span class="busy-orbit busy-orbit-2">−</span>
+        <span class="busy-orbit busy-orbit-3">×</span>
+        <span class="busy-orbit busy-orbit-4">÷</span>
+      </div>
+      <p class="busy-kicker">BİR AZ SƏBİR</p>
+      <h3 class="busy-title" id="busy-dialog-title">VALEH ÜZƏRİNDƏ İŞLƏYİR</h3>
+      <p class="busy-copy">Səbirli olun :)</p>
+      <div class="busy-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    `;
+    serverBusyDialog.querySelector(".busy-dialog-close").addEventListener("click", () => serverBusyDialog.close());
+    serverBusyDialog.addEventListener("click", event => {
+      if (event.target === serverBusyDialog) serverBusyDialog.close();
+    });
+    document.body.append(serverBusyDialog);
+  }
+  if (!serverBusyDialog.open) serverBusyDialog.showModal();
+}
+
+function serverBusyError() {
+  const error = new Error("Server hazır deyil.");
+  error.serverBusy = true;
+  return error;
+}
 
 async function analyzeWordProblem(problem) {
   let response;
@@ -1070,14 +1105,14 @@ async function analyzeWordProblem(problem) {
       body: JSON.stringify({ problem })
     });
   } catch {
-    throw new Error(SERVER_BUSY_MESSAGE);
+    throw serverBusyError();
   }
   const payload = await response.json().catch(() => ({}));
   if (!response.ok) {
-    if (response.status === 404 || response.status === 503) {
-      throw new Error(SERVER_BUSY_MESSAGE);
+    if (response.status === 404 || response.status === 503 || response.status >= 500 || !payload.error) {
+      throw serverBusyError();
     }
-    throw new Error(payload.error || "Məsələni təhlil etmək mümkün olmadı.");
+    throw new Error(payload.error);
   }
   if (!payload.understood || !payload.wordProblem || !Array.isArray(payload.wordProblem.actions) || !Array.isArray(payload.steps)) {
     throw new Error("Məsələnin məzmunu dəqiq anlaşılmadı. Mətni bir az aydınlaşdırıb yenidən yoxla.");
@@ -1111,7 +1146,11 @@ solveButton.addEventListener("click", async () => {
       : await analyzeWordProblem(problem);
     renderSolution(problem, result);
   } catch (error) {
-    showError(error instanceof Error ? error.message : "Məsələni həll edərkən xəta baş verdi.");
+    if (error && error.serverBusy) {
+      showServerBusyModal();
+    } else {
+      showError(error instanceof Error ? error.message : "Məsələni həll edərkən xəta baş verdi.");
+    }
   } finally {
     solveButton.disabled = false;
     solveButton.innerHTML = originalButtonText;
