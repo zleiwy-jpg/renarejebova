@@ -1125,6 +1125,11 @@ async function analyzeWordProblem(problem) {
   };
 }
 
+// Həll serveri yalnız lokal inkişafda işləyir. Sayt statik hostinqdə
+// (GitHub Pages) yerləşəndə backend olmadığı üçün dərhal mehriban modal göstərilir.
+const localSolverHosts = ["localhost", "127.0.0.1", "::1"];
+const isLocalDev = localSolverHosts.includes(location.hostname);
+
 solveButton.addEventListener("click", async () => {
   clearError();
   const problem = input.value.trim();
@@ -1135,6 +1140,10 @@ solveButton.addEventListener("click", async () => {
   }
   if (problem.length > 2000) {
     showError("Məsələ çox uzundur. Zəhmət olmasa 2 000 simvoldan qısa yaz.");
+    return;
+  }
+  if (!isLocalDev) {
+    showServerBusyModal();
     return;
   }
   const originalButtonText = solveButton.innerHTML;
