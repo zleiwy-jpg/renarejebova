@@ -17,7 +17,6 @@
   const gameOptions = gamesSection.querySelector(".game-options");
   const answerForm = gamesSection.querySelector(".game-answer-form");
   const answerInput = gamesSection.querySelector("#game-answer");
-  const answerSubmit = answerForm.querySelector('button[type="submit"]');
   const gameFeedback = gamesSection.querySelector(".game-feedback");
   const gameNext = gamesSection.querySelector(".game-next");
   const gameOver = gamesSection.querySelector(".game-over");
@@ -43,6 +42,7 @@
   let secondsLeft = roundDuration;
   let answered = false;
   let timerId = 0;
+  let inputTimer = 0;
 
   function randomInteger(minimum, maximum) {
     return Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
@@ -158,9 +158,9 @@
     gameNext.hidden = true;
     answerInput.value = "";
     answerInput.disabled = false;
-    answerSubmit.disabled = false;
     answerForm.hidden = Boolean(currentQuestion.choices);
     gameOptions.hidden = !currentQuestion.choices;
+    clearTimeout(inputTimer); // Clear any pending auto-submit
 
     if (currentQuestion.choices) {
       renderChoices(currentQuestion.choices);
@@ -200,13 +200,17 @@
     }
 
     answerInput.disabled = true;
-    answerSubmit.disabled = true;
     gameOptions.querySelectorAll("button").forEach(button => {
       button.disabled = true;
       button.classList.toggle("is-answer", button.dataset.answer === currentQuestion.answer);
     });
-    gameNext.hidden = false;
-    gameNext.focus();
+
+    // Auto-advance to next question after brief delay
+    setTimeout(() => {
+      if (secondsLeft > 0) {
+        renderQuestion();
+      }
+    }, 1200);
   }
 
   function startGame(gameId) {
@@ -254,16 +258,29 @@
     if (button) startGame(button.dataset.gameStart);
   });
 
-  answerForm.addEventListener("submit", event => {
-    event.preventDefault();
-    if (!answerForm.reportValidity()) return;
-    const value = Number(answerInput.value.trim());
-    if (!Number.isFinite(value)) {
-      gameFeedback.textContent = "Zəhmət olmasa, rəqəm daxil et.";
-      gameFeedback.classList.remove("is-correct");
-      return;
+  // Auto-submit on Enter key for text input games (sprint, equation)
+  answerInput.addEventListener("keydown", event => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      const value = Number(answerInput.value.trim());
+      if (Number.isFinite(value)) {
+        submitAnswer(value);
+      }
     }
-    submitAnswer(value);
+  });
+
+  // Also auto-submit after brief delay when input has value (for quick play)
+  answerInput.addEventListener("input", () => {
+    clearTimeout(inputTimer);
+    const value = answerInput.value.trim();
+    if (value.length > 0 && !isNaN(Number(value))) {
+      inputTimer = setTimeout(() => {
+        const numValue = Number(value);
+        if (Number.isFinite(numValue)) {
+          submitAnswer(numValue);
+        }
+      }, 500); // 500ms delay for quick auto-submit
+    }
   });
 
   gameOptions.addEventListener("click", event => {
@@ -271,7 +288,6 @@
     if (button) submitAnswer(button.dataset.answer);
   });
 
-  gameNext.addEventListener("click", renderQuestion);
   gameExit.addEventListener("click", returnToGames);
   gameReturn.addEventListener("click", returnToGames);
   gameReplay.addEventListener("click", () => startGame(activeGame));

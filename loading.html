@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rəna Rəcəbova.az — Yüklenir</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&family=Poppins:wght@800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="palette.css">
+  <style>
+    :root {
+      --black: #191C1A;
+      --orange: #C9965A;
+      --orange-light: #E3C18E;
+      --gray: #292D2A;
+      --yellow: #D6C9A6;
+      --cream: #F1ECE2;
+      --text-muted: #B0B2A8;
+      --blue: #9AB6AA;
+      --purple: #B6A8C4;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Inter', 'Montserrat', system-ui, sans-serif;
+      background-color: var(--black);
+      background-image:
+        radial-gradient(ellipse at 82% 10%, rgba(201, 150, 90, .07), transparent 34%),
+        radial-gradient(ellipse at 12% 72%, rgba(116, 145, 130, .045), transparent 38%);
+      color: var(--cream);
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Page glow effects matching main site */
+    .page-glow {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .page-glow-one {
+      width: 600px;
+      height: 600px;
+      top: -200px;
+      right: -200px;
+      background-color: var(--orange);
+      opacity: .08;
+    }
+
+    .page-glow-two {
+      width: 400px;
+      height: 400px;
+      bottom: -150px;
+      left: -150px;
+      background-color: var(--yellow);
+      opacity: .045;
+    }
+
+    .loading-container {
+      text-align: center;
+      z-index: 1;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .loading-brand {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 56px;
+      height: 56px;
+      border-radius: 12px;
+      background-color: var(--black);
+      border: 1px solid rgba(255, 152, 0, .2);
+    }
+
+    .loading-brand img {
+      width: 36px;
+      height: 36px;
+      filter: sepia(.35) saturate(1.35);
+    }
+
+    .loading-title {
+      font-family: 'Poppins', 'Montserrat', sans-serif;
+      font-weight: 800;
+      font-size: clamp(1.75rem, 5vw, 2.5rem);
+      line-height: 1.15;
+      color: var(--orange-light);
+      letter-spacing: -0.02em;
+    }
+
+    .loading-title span {
+      color: var(--orange);
+    }
+
+    .loading-subtitle {
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: 1rem;
+      color: var(--orange-light);
+      opacity: .85;
+      letter-spacing: 0.02em;
+    }
+
+    /* Canvas animation container - centered */
+    .canvas-wrapper {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      transform: rotate(45deg);
+    }
+
+    #container {
+      width: 140px;
+      height: 140px;
+      display: block;
+    }
+
+    /* Progress bar */
+    .loading-progress {
+      width: 200px;
+      max-width: 90vw;
+      height: 4px;
+      background: var(--gray);
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 152, 0, .12);
+    }
+
+    .loading-progress-bar {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, var(--orange), var(--orange-light), var(--yellow));
+      border-radius: 2px;
+      animation: progress 2.2s ease-out forwards;
+      box-shadow: 0 0 12px rgba(255, 152, 0, .4);
+    }
+
+    @keyframes progress {
+      0% { width: 0%; }
+      100% { width: 100%; }
+    }
+
+    .loading-text {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      opacity: .7;
+    }
+
+    /* Floating math symbols - decorative */
+    .floating-math {
+      position: fixed;
+      font-family: 'STIX Two Math', serif;
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      color: var(--orange);
+      opacity: .06;
+      pointer-events: none;
+      animation: float 20s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .floating-math:nth-child(1) { top: 15%; left: 8%; animation-delay: 0s; }
+    .floating-math:nth-child(2) { top: 25%; right: 10%; animation-delay: -3s; }
+    .floating-math:nth-child(3) { bottom: 20%; left: 5%; animation-delay: -6s; }
+    .floating-math:nth-child(4) { bottom: 30%; right: 8%; animation-delay: -9s; }
+    .floating-math:nth-child(5) { top: 50%; left: 3%; animation-delay: -12s; }
+    .floating-math:nth-child(6) { top: 45%; right: 4%; animation-delay: -15s; }
+
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      25% { transform: translate(15px, -15px) rotate(3deg); }
+      50% { transform: translate(-10px, 10px) rotate(-2deg); }
+      75% { transform: translate(10px, 15px) rotate(1deg); }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .loading-progress-bar {
+        animation: none;
+        width: 100%;
+      }
+      .floating-math {
+        animation: none;
+      }
+      #container {
+        animation: none;
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .loading-container {
+        padding: 0 20px;
+        gap: 16px;
+      }
+      .loading-progress {
+        width: 140px;
+      }
+      .canvas-wrapper {
+        width: 120px;
+        height: 120px;
+      }
+      #container {
+        width: 120px;
+        height: 120px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page-glow page-glow-one"></div>
+  <div class="page-glow page-glow-two"></div>
+
+  <!-- Floating decorative math symbols -->
+  <span class="floating-math" aria-hidden="true">∑</span>
+  <span class="floating-math" aria-hidden="true">π</span>
+  <span class="floating-math" aria-hidden="true">√</span>
+  <span class="floating-math" aria-hidden="true">∫</span>
+  <span class="floating-math" aria-hidden="true">±</span>
+  <span class="floating-math" aria-hidden="true">∞</span>
+
+  <div class="loading-container">
+    <div class="loading-brand" aria-hidden="true">
+      <img src="nav_logo.png" alt="">
+    </div>
+
+    <h1 class="loading-title">Rəna Rəcəbova<span>.az</span></h1>
+    <p class="loading-subtitle">Riyaziyyatın aydın həlli</p>
+
+    <!-- Canvas animation from user -->
+    <div class="canvas-wrapper" aria-hidden="true">
+      <canvas id="container" width="140" height="140"></canvas>
+    </div>
+
+    <div class="loading-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-label="Yüklənmə statusu">
+      <div class="loading-progress-bar"></div>
+    </div>
+
+    <p class="loading-text" id="loadingText">Hazırlanır</p>
+  </div>
+
+  <script>
+    // Canvas animation - user's code adapted
+    (function() {
+      const canvas = document.getElementById('container');
+      if (!canvas || !canvas.getContext) return;
+
+      const context = canvas.getContext('2d');
+      const points = [];
+      const velocity2 = 5; // velocity squared
+      const radius = 5;
+      const boundaryX = 140;
+      const boundaryY = 140;
+      const numberOfPoints = 30;
+
+      function init() {
+        // create points
+        for (let i = 0; i < numberOfPoints; i++) {
+          createPoint();
+        }
+        // create connections
+        for (let i = 0, l = points.length; i < l; i++) {
+          const point = points[i];
+          if (i === 0) {
+            points[i].buddy = points[points.length - 1];
+          } else {
+            points[i].buddy = points[i - 1];
+          }
+        }
+        animate();
+      }
+
+      function createPoint() {
+        const point = {};
+        point.x = Math.random() * boundaryX;
+        point.y = Math.random() * boundaryY;
+        // random vx
+        point.vx = (Math.floor(Math.random()) * 2 - 1) * Math.random();
+        const vx2 = Math.pow(point.vx, 2);
+        // vy^2 = velocity^2 - vx^2
+        const vy2 = velocity2 - vx2;
+        point.vy = Math.sqrt(Math.max(0, vy2)) * (Math.random() * 2 - 1);
+        points.push(point);
+      }
+
+      function resetVelocity(point, axis, dir) {
+        if (axis === 'x') {
+          point.vx = dir * Math.random();
+          const vx2 = Math.pow(point.vx, 2);
+          const vy2 = velocity2 - vx2;
+          point.vy = Math.sqrt(Math.max(0, vy2)) * (Math.random() * 2 - 1);
+        } else {
+          point.vy = dir * Math.random();
+          const vy2 = Math.pow(point.vy, 2);
+          const vx2 = velocity2 - vy2;
+          point.vx = Math.sqrt(Math.max(0, vx2)) * (Math.random() * 2 - 1);
+        }
+      }
+
+      function drawCircle(x, y) {
+        context.beginPath();
+        context.arc(x, y, radius, 0, 2 * Math.PI, false);
+        context.fillStyle = '#C9965A'; // Brand orange
+        context.fill();
+      }
+
+      function drawLine(x1, y1, x2, y2) {
+        context.beginPath();
+        context.moveTo(x1, y1);
+        context.lineTo(x2, y2);
+        context.strokeStyle = 'rgba(201, 150, 90, 0.6)'; // Brand orange with transparency
+        context.lineWidth = 1.5;
+        context.stroke();
+      }
+
+      function draw() {
+        for (let i = 0, l = points.length; i < l; i++) {
+          const point = points[i];
+          point.x += point.vx;
+          point.y += point.vy;
+          drawCircle(point.x, point.y);
+          // lines
+          drawLine(point.x, point.y, point.buddy.x, point.buddy.y);
+          // check for edge
+          if (point.x < 0 + radius) {
+            resetVelocity(point, 'x', 1);
+          } else if (point.x > boundaryX - radius) {
+            resetVelocity(point, 'x', -1);
+          } else if (point.y < 0 + radius) {
+            resetVelocity(point, 'y', 1);
+          } else if (point.y > boundaryY - radius) {
+            resetVelocity(point, 'y', -1);
+          }
+        }
+      }
+
+      function animate() {
+        context.clearRect(0, 0, 140, 140);
+        draw();
+        requestAnimationFrame(animate);
+      }
+
+      init();
+    })();
+
+    // Loading text rotation
+    const texts = ['Hazırlanır', 'Mövzular yüklənir', 'Qrafiklər hazırlanır', 'Tamamlanır'];
+    let idx = 0;
+    const textEl = document.getElementById('loadingText');
+
+    const interval = setInterval(() => {
+      idx = (idx + 1) % texts.length;
+      textEl.textContent = texts[idx];
+    }, 600);
+
+    // Redirect after loading
+    setTimeout(() => {
+      clearInterval(interval);
+      window.location.href = 'index.html';
+    }, 2500);
+  </script>
+</body>
+</html>
