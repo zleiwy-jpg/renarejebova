@@ -1,0 +1,288 @@
+.page-loader {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #263445;
+  background-color: #f5f7fa;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity .38s ease, visibility .38s ease;
+}
+
+.page-loader.is-leaving {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-content {
+  width: min(390px, calc(100vw - 48px));
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.loader-logo {
+  display: block;
+  width: min(330px, 88%);
+  height: auto;
+  margin-bottom: 5px;
+  object-fit: contain;
+  animation: loader-logo-in .7s cubic-bezier(.2,.7,.2,1) both;
+}
+
+.loader-math {
+  position: relative;
+  width: min(300px, 90%);
+  height: 145px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 3px;
+}
+
+.loader-orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 184px;
+  height: 82px;
+  border: 1px solid rgba(85, 127, 137, .28);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) rotate(-24deg);
+  animation: loader-orbit-turn 3.2s ease-in-out infinite;
+}
+
+.loader-orbit-two {
+  width: 224px;
+  height: 102px;
+  border-color: rgba(118, 107, 157, .2);
+  transform: translate(-50%, -50%) rotate(31deg);
+  animation-delay: -.6s;
+}
+
+.loader-graph {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 128px;
+  overflow: visible;
+}
+
+.loader-axis {
+  fill: none;
+  stroke: rgba(82, 97, 116, .28);
+  stroke-width: 1;
+  stroke-dasharray: 4 5;
+}
+
+.loader-parabola {
+  fill: none;
+  stroke: #557f89;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-dasharray: 280;
+  stroke-dashoffset: 280;
+  animation: loader-draw-graph 1.55s .25s ease-out forwards, loader-graph-glow 1.8s 1.3s ease-in-out infinite alternate;
+}
+
+.loader-point {
+  fill: #c99d54;
+  opacity: 0;
+  animation: loader-point-show .35s 1.45s ease-out forwards, loader-point-pulse 1.2s 1.8s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.loader-symbol {
+  position: absolute;
+  z-index: 2;
+  color: #c99d54;
+  font: 600 18px var(--display, Georgia, serif);
+  animation: loader-symbol-float 2.2s ease-in-out infinite;
+}
+
+.loader-symbol-pi {
+  top: 12px;
+  left: 35px;
+}
+
+.loader-symbol-sigma {
+  top: 24px;
+  right: 33px;
+  color: #766b9d;
+  animation-delay: -.7s;
+}
+
+.loader-symbol-root {
+  right: 54px;
+  bottom: 8px;
+  color: #557f89;
+  font-size: 15px;
+  animation-delay: -1.2s;
+}
+
+.loader-equation {
+  position: absolute;
+  bottom: 10px;
+  left: 28px;
+  color: #526174;
+  font: 500 10px var(--display, Georgia, serif);
+  letter-spacing: .3px;
+  opacity: 0;
+  animation: loader-caption-in .5s 1.25s ease-out forwards;
+}
+
+.loader-caption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  margin: 8px 0 0;
+  color: #657487;
+  font: 600 10px var(--font, Arial, sans-serif);
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+}
+
+.loader-caption::before {
+  width: 0;
+  height: 2px;
+  margin-bottom: 3px;
+  border-radius: 2px;
+  background-color: #c99d54;
+  content: "";
+  animation: loader-caption-rule .55s .45s ease-out forwards;
+}
+
+.loader-caption span {
+  opacity: 0;
+  animation: loader-caption-kicker .55s .55s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+.loader-caption strong {
+  position: relative;
+  color: #263445;
+  font: 600 clamp(21px, 5vw, 25px)/1.25 var(--display, Georgia, serif);
+  letter-spacing: -.55px;
+  text-shadow: none;
+  text-transform: none;
+  opacity: 0;
+  clip-path: inset(0 100% 0 0);
+  animation: loader-caption-title .9s .95s cubic-bezier(.2,.7,.2,1) forwards;
+}
+
+.loader-caption strong::after {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin: 0 0 3px 7px;
+  border-radius: 50%;
+  background-color: #c99d54;
+  content: "";
+  opacity: 0;
+  animation: loader-caption-dot .35s 1.8s ease-out forwards;
+}
+
+@keyframes loader-logo-in {
+  from { opacity: 0; transform: translateY(9px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes loader-draw-graph {
+  to { stroke-dashoffset: 0; }
+}
+
+@keyframes loader-graph-glow {
+  from { filter: drop-shadow(0 0 2px rgba(85, 127, 137, .16)); }
+  to { filter: drop-shadow(0 0 6px rgba(85, 127, 137, .35)); }
+}
+
+@keyframes loader-point-show {
+  to { opacity: 1; }
+}
+
+@keyframes loader-point-pulse {
+  50% { transform: scale(1.7); }
+}
+
+@keyframes loader-orbit-turn {
+  0%, 100% { opacity: .5; }
+  50% { opacity: 1; }
+}
+
+@keyframes loader-symbol-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes loader-caption-rule {
+  to { width: 38px; }
+}
+
+@keyframes loader-caption-kicker {
+  from { opacity: 0; transform: translateY(7px); letter-spacing: 4px; }
+  to { opacity: 1; transform: translateY(0); letter-spacing: 2.4px; }
+}
+
+@keyframes loader-caption-title {
+  0% { opacity: 0; clip-path: inset(0 100% 0 0); transform: translateY(9px); }
+  100% { opacity: 1; clip-path: inset(0 0 0 0); transform: translateY(0); }
+}
+
+@keyframes loader-caption-dot {
+  to { opacity: 1; }
+}
+
+@media (max-width: 520px) {
+  .loader-content {
+    width: calc(100vw - 40px);
+  }
+
+  .loader-logo {
+    width: min(290px, 92%);
+  }
+
+  .loader-math {
+    height: 132px;
+  }
+
+  .loader-graph {
+    height: 116px;
+  }
+
+  .loader-caption {
+    font-size: 9px;
+  }
+
+  .loader-caption span {
+    letter-spacing: 1.8px;
+  }
+
+  @keyframes loader-caption-kicker {
+    from { opacity: 0; transform: translateY(7px); letter-spacing: 3px; }
+    to { opacity: 1; transform: translateY(0); letter-spacing: 1.8px; }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .loader-logo,
+  .loader-orbit,
+  .loader-parabola,
+  .loader-point,
+  .loader-symbol,
+  .loader-equation,
+  .loader-caption::before,
+  .loader-caption span,
+  .loader-caption strong,
+  .loader-caption strong::after {
+    animation-duration: .01ms !important;
+    animation-delay: 0s !important;
+    animation-iteration-count: 1 !important;
+    opacity: 1 !important;
+    clip-path: none !important;
+  }
+}

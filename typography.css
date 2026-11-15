@@ -1,0 +1,44 @@
+:root {
+  --font: "Inter", sans-serif;
+  --display: "Montserrat", sans-serif;
+  --brand-font: "Poppins", sans-serif;
+  --math-font: "STIX Two Math", serif;
+}
+
+body {
+  font-family: var(--font);
+  font-weight: 400;
+}
+
+.brand,
+.brand-name,
+.brand-mark {
+  font-family: var(--brand-font);
+  font-weight: 800;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--display) !important;
+  font-weight: 700 !important;
+}
+
+button,
+.mix-btn,
+.hero-cta,
+.top-action,
+.nav-link {
+  font-family: var(--font) !important;
+  font-weight: 600 !important;
+}
+
+[class*="math"],
+[class*="equation"],
+[class*="formula"] {
+  font-family: var(--math-font);
+  font-weight: 400;
+}

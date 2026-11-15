@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="az">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1A1A1A">
+  <meta name="description" content="Riyaziyyat mini-oyunları ilə hesabını sürətləndir və məntiqini yoxla — Rəna Rəcəbova.az">
+  <title>Oyunlar — Rəna Rəcəbova.az</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700&family=Poppins:wght@800&family=STIX+Two+Math&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="sinaq.css">
+  <link rel="stylesheet" href="theme.css">
+  <link rel="stylesheet" href="palette.css">
+  <link rel="stylesheet" href="mix.css">
+  <link rel="stylesheet" href="typography.css">
+  <link rel="stylesheet" href="loading.css">
+  <link rel="stylesheet" href="visual.css">
+  <script src="loading.js" defer></script>
+</head>
+<body>
+  <div class="page-glow page-glow-one"></div>
+  <div class="page-glow page-glow-two"></div>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Rəna Rəcəbova.az ana səhifə"><img class="brand-logo" src="nav_logo.png" alt="Rəna Rəcəbova.az"></a>
+    <nav class="main-nav" aria-label="Əsas menyu">
+      <a class="nav-link" href="/">Ana səhifə</a>
+      <a class="nav-link" href="/hell-et">Həll et</a>
+      <a class="nav-link" href="/movzular">Mövzular</a>
+      <a class="nav-link active" href="/oyunlar" aria-current="page">Oyunlar</a>
+      <a class="nav-link" href="/sinaq">Online sınaq</a>
+      <a class="nav-link" href="/haqqimda">Haqqımda</a>
+      <a class="nav-link nav-wa" href="/elaqe">Əlaqə</a>
+    </nav>
+    <a class="dashboard-open" href="/?login=1"><span aria-hidden="true">∑</span> Daxil ol</a>
+    <button class="menu-toggle" type="button" aria-label="Menyunu aç" aria-expanded="false"><span></span><span></span></button>
+  </header>
+
+  <main>
+    <section class="games-section" id="oyunlar" aria-labelledby="games-title">
+      <div class="games-heading">
+        <div>
+          <div class="eyebrow section-eyebrow"><span class="eyebrow-dot"></span> RİYAZİYYAT OYUNLARI</div>
+          <h1 id="games-title">Oyna, düşün, <span>irəlilə.</span></h1>
+        </div>
+        <p>Qısa oyunlarla hesabını sürətləndir, məntiqini yoxla və xalını artır.</p>
+      </div>
+      <div class="games-grid" role="group" aria-label="Oyun seç">
+        <button class="game-card" type="button" data-game-start="sprint">
+          <span class="game-card-icon" aria-hidden="true">±</span><span class="game-card-tag">45 saniyə · sürət</span>
+          <strong>Hesab sprinti</strong><span class="game-card-copy">Əməliyyatları mümkün qədər tez həll et.</span>
+          <span class="game-card-action">Oyna <span aria-hidden="true">→</span></span>
+        </button>
+        <button class="game-card" type="button" data-game-start="equation">
+          <span class="game-card-icon" aria-hidden="true">x = ?</span><span class="game-card-tag">45 saniyə · cəbr</span>
+          <strong>Tənlik ustası</strong><span class="game-card-copy">x-in qiymətini tap, tənlikləri aç.</span>
+          <span class="game-card-action">Oyna <span aria-hidden="true">→</span></span>
+        </button>
+        <button class="game-card" type="button" data-game-start="fractions">
+          <span class="game-card-icon" aria-hidden="true">½</span><span class="game-card-tag">45 saniyə · kəsrlər</span>
+          <strong>Kəsr dueli</strong><span class="game-card-copy">İki kəsri müqayisə et, böyüyünü seç.</span>
+          <span class="game-card-action">Oyna <span aria-hidden="true">→</span></span>
+        </button>
+      </div>
+      <div class="game-arena" hidden aria-labelledby="game-title">
+        <div class="game-arena-header">
+          <div><p class="game-arena-kicker">SƏNİN RAUNDUN</p><h3 id="game-title"></h3></div>
+          <div class="game-scoreboard" aria-label="Oyun göstəriciləri">
+            <div class="game-stat"><span>Vaxt</span><strong class="game-time" role="timer" aria-label="Qalan vaxt" aria-live="off">00:45</strong></div>
+            <div class="game-stat"><span>Xal</span><strong class="game-score">0</strong></div>
+          </div>
+          <button class="game-exit" type="button">Oyunlardan çıx</button>
+        </div>
+        <div class="game-progress" role="progressbar" aria-label="Qalan oyun vaxtı" aria-valuemin="0" aria-valuemax="45" aria-valuenow="45"><span></span></div>
+        <div class="game-play">
+          <p class="game-instruction"></p><h4 class="game-question" id="game-question"></h4>
+          <div class="game-options" role="group" aria-labelledby="game-question" hidden></div>
+          <form class="game-answer-form">
+            <label class="sr-only" for="game-answer">Cavabın</label>
+            <div class="game-answer-row"><input id="game-answer" name="answer" inputmode="numeric" autocomplete="off" placeholder="Cavabın" required><button type="submit">Yoxla <span aria-hidden="true">→</span></button></div>
+          </form>
+          <p class="game-feedback" role="status" aria-live="polite"></p>
+          <button class="game-next" type="button" hidden>Növbəti sual <span aria-hidden="true">→</span></button>
+        </div>
+        <div class="game-over" hidden aria-live="polite">
+          <span class="game-over-icon" aria-hidden="true">✓</span><p class="game-over-kicker">RAUND TAMAMLANDI</p>
+          <h4>Əla oynadın!</h4><p class="game-over-copy"></p>
+          <div class="game-over-actions"><button class="game-replay" type="button">Yenidən oyna</button><button class="game-return" type="button">Oyun seç</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a class="brand footer-brand" href="/" aria-label="Rəna Rəcəbova.az ana səhifə"><img class="brand-logo" src="nav_logo.png" alt="Rəna Rəcəbova.az"></a>
+    <span>Riyaziyyatı anlamaq üçün yeni bir yol.</span>
+    <a class="contact-button" href="https://wa.me/994707160585" target="_blank" rel="noopener noreferrer">WhatsApp ilə yaz</a>
+    <span>© 2026 Rəna Rəcəbova.az</span>
+  </footer>
+  <script src="games.js"></script>
+  <script src="site-nav.js"></script>
+  <script src="chat.js"></script>
+</body>
+</html>

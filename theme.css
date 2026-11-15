@@ -1,0 +1,2845 @@
+:root {
+  color-scheme: light;
+  --bg: #f5f7fa;
+  --surface: #ffffff;
+  --line: #e2e8ef;
+  --text: #263445;
+  --muted: #657487;
+  --blue: #557f89;
+  --purple: #766b9d;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.page-glow {
+  display: none;
+}
+
+.topbar {
+  border-color: var(--line);
+}
+
+.brand-mark,
+.middle-school-mode .brand-mark,
+.login-mark,
+.dashboard-brand-mark {
+  color: #eadcf3;
+  background-color: #43364a;
+  box-shadow: none;
+}
+
+.hero h1 span,
+.about-copy h2 span,
+.about-stats-heading h2 span,
+.exam-intro h1 span {
+  color: #d2b8e3;
+  -webkit-text-fill-color: currentColor;
+}
+
+.hero-cta,
+.solve-button,
+.about-cta,
+.about-cta:hover,
+.login-submit,
+.exam-primary,
+.question-option input:checked ~ .option-key,
+.finish-exam.is-confirming {
+  color: #f7fbfc;
+background-color: #765985;
+  box-shadow: none;
+}
+
+.topbar .main-nav .nav-link {
+  border-color: #51465a;
+  color: #e3dce8;
+  background-color: #25222d;
+}
+
+.topbar .main-nav .nav-button-about:hover {
+  border-color: #92769f;
+  color: #f7fbfc;
+  background-color: #342b3b;
+}
+
+.topbar .main-nav .nav-button-exam,
+.topbar .main-nav .nav-button-exam:hover {
+  border-color: #765985;
+  color: #f7fbfc;
+  background-color: #765985;
+  box-shadow: none;
+}
+
+.art-card,
+.input-panel,
+.result-panel,
+.how-card,
+.word-visual,
+.word-explanation-panel,
+.about-stat,
+.login-screen,
+.dashboard-screen,
+.summary-card,
+.schedule-card,
+.exam-card,
+.exam-facts span,
+.exam-field input,
+.exam-field select,
+.student-level-display,
+.question-option,
+.result-breakdown > div,
+.review-item {
+  border-color: var(--line);
+  background-color: var(--surface);
+  box-shadow: none;
+}
+
+.mode-tabs,
+.mode-tab.selected,
+.exam-progress,
+.question-option input:checked ~ .option-key,
+.quiz-progress span,
+.result-symbol {
+  background-color: #43364a;
+  box-shadow: none;
+}
+
+.mode-tab.selected,
+.step-counter,
+.exam-facts i,
+.student-level-display,
+.about-quote,
+.result-symbol {
+  color: #d2b8e3;
+}
+
+.about-quote {
+  border-color: var(--line);
+  border-left-color: #ce7182;
+  background-color: #30252e;
+}
+
+.about-photo-wrap::before,
+.about-photo-frame::after,
+.about-milestone::before,
+.empty-illustration > span {
+  background-color: #765985;
+  box-shadow: none;
+}
+
+.about-photo-frame {
+  background-color: var(--surface);
+}
+
+.exam-field select {
+  appearance: auto;
+}
+
+.quiz-progress {
+  background-color: #443b48;
+}
+
+.exam-primary:hover:not(:disabled),
+.hero-cta:hover,
+.about-cta:hover {
+  background-color: #89689a;
+}
+
+.eyebrow-dot,
+.art-label i,
+.ready-badge i {
+  background-color: #d2b8e3;
+  box-shadow: none;
+}
+
+.note-stars,
+.legend-dot,
+.math-two,
+.result-pill,
+.result-pill *,
+.stat-ring {
+  color: #d2b8e3;
+}
+
+.result-pill {
+  border-color: rgba(210, 184, 227, .35);
+}
+
+.math-three,
+.about-stat:nth-child(2) .stat-ring,
+.about-stat:nth-child(2) .stat-value strong {
+  color: #ce7182;
+}
+
+.about-stat:nth-child(3) .stat-ring,
+.about-stat:nth-child(3) .stat-value strong {
+  color: #e3c16e;
+}
+
+.about-stat:nth-child(1) .stat-ring,
+.about-stat:nth-child(1) .stat-value strong {
+  color: #c3a8d7;
+}
+
+.art-card-foot .result-pill {
+  color: #d2b8e3;
+  border-color: rgba(210, 184, 227, .35);
+}
+
+.question-option:hover,
+.question-option:focus-within {
+  border-color: rgba(195, 168, 215, .55);
+}
+
+.lesson-chat-toggle {
+  position: fixed;
+  z-index: 20;
+  right: 22px;
+  bottom: 22px;
+  width: 62px;
+  height: 62px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(232, 214, 240, .7);
+  border-radius: 50%;
+  color: #fff8ff;
+  background-color: #765985;
+  box-shadow: 0 7px 22px rgba(10, 7, 16, .35), inset 0 0 0 4px rgba(255, 255, 255, .09);
+  cursor: pointer;
+  transition: transform .2s, background-color .2s, box-shadow .2s;
+}
+
+.lesson-chat-toggle:hover {
+  transform: translateY(-3px) scale(1.04);
+  background-color: #89689a;
+  box-shadow: 0 11px 26px rgba(10, 7, 16, .42), inset 0 0 0 4px rgba(255, 255, 255, .12);
+}
+
+.lesson-chat-toggle-mark {
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255, 248, 255, .42);
+  border-radius: 50%;
+  color: #fff5dc;
+  background-color: #5d4569;
+  font: 700 29px/1 var(--display);
+  text-shadow: 0 1px 5px rgba(0, 0, 0, .22);
+}
+
+.lesson-chat-prompt {
+  position: fixed;
+  z-index: 20;
+  right: 97px;
+  bottom: 96px;
+  max-width: min(220px, calc(100vw - 120px));
+  padding: 10px 13px;
+  border: 1px solid rgba(210, 184, 227, .28);
+  border-radius: 12px 12px 4px 12px;
+  color: #eee5f2;
+  background-color: #302638;
+  box-shadow: 0 5px 16px rgba(10, 7, 16, .25);
+  cursor: pointer;
+  font: 500 11px var(--font);
+  animation: lesson-chat-prompt-in .35s ease-out both;
+}
+
+.lesson-chat-prompt::after {
+  position: absolute;
+  right: -5px;
+  bottom: 11px;
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid rgba(210, 184, 227, .28);
+  border-right: 1px solid rgba(210, 184, 227, .28);
+  background-color: #302638;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.lesson-chat-prompt:hover {
+  border-color: rgba(210, 184, 227, .5);
+  background-color: #3b2e43;
+}
+
+.lesson-chat-prompt[hidden] {
+  display: none;
+}
+
+@keyframes lesson-chat-prompt-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.lesson-chat-toggle::after {
+  position: absolute;
+  right: 2px;
+  bottom: 2px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #19171f;
+  border-radius: 50%;
+  background-color: #a5c99d;
+  content: "";
+}
+
+.lesson-chat-panel {
+  position: fixed;
+  z-index: 21;
+  right: 22px;
+  bottom: 86px;
+  width: min(370px, calc(100vw - 32px));
+  height: min(540px, calc(100dvh - 112px));
+  min-height: 390px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid rgba(210, 184, 227, .32);
+  border-radius: 18px;
+  color: var(--text);
+  background-color: #211d27;
+  box-shadow: 0 22px 65px rgba(5, 3, 10, .55);
+  animation: lesson-chat-enter .2s ease-out;
+}
+
+.lesson-chat-panel[hidden] {
+  display: none;
+}
+
+@keyframes lesson-chat-enter {
+  from { opacity: 0; transform: translateY(10px) scale(.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.lesson-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 82px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(210, 184, 227, .18);
+  background-color: #2b2530;
+}
+
+.lesson-chat-identity,
+.lesson-chat-header-actions {
+  display: flex;
+  align-items: center;
+}
+
+.lesson-chat-identity {
+  min-width: 0;
+  gap: 11px;
+}
+
+.lesson-chat-avatar {
+  width: 43px;
+  height: 43px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(210, 184, 227, .36);
+  border-radius: 12px;
+  color: #e2ccec;
+  background-color: #403447;
+  font: 700 26px/1 var(--display);
+}
+
+.lesson-chat-header-copy {
+  min-width: 0;
+}
+
+.lesson-chat-header h2 {
+  margin: 0;
+  color: #f4eff6;
+  font: 700 15px var(--display);
+  letter-spacing: .1px;
+}
+
+.lesson-chat-header p {
+  margin: 3px 0 0;
+  color: #bdb1c4;
+  font-size: 9px;
+  line-height: 1.4;
+}
+
+.lesson-chat-header-actions {
+  flex: 0 0 auto;
+  gap: 11px;
+}
+
+.lesson-chat-online {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #d7d0d9;
+  font-size: 8px;
+  font-weight: 600;
+}
+
+.lesson-chat-online span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #9bbd9b;
+}
+
+.lesson-chat-close {
+  width: 29px;
+  height: 29px;
+  border: 1px solid rgba(220, 202, 229, .2);
+  border-radius: 10px;
+  color: #ded3e4;
+  background-color: #39313e;
+  cursor: pointer;
+  font-size: 19px;
+  line-height: 1;
+  transition: background-color .18s, border-color .18s;
+}
+
+.lesson-chat-close:hover {
+  border-color: rgba(220, 202, 229, .42);
+  background-color: #493d50;
+}
+
+.lesson-chat-messages {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  min-height: 0;
+  padding: 17px 14px;
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.lesson-chat-message {
+  max-width: 90%;
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 13px 13px 13px 4px;
+  color: #eee8f1;
+  background-color: #302b36;
+  font-size: 11px;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.lesson-chat-message.is-user {
+  align-self: flex-end;
+  border-color: rgba(195, 168, 215, .35);
+  border-radius: 13px 13px 4px 13px;
+  color: #fffaff;
+  background-color: #62496f;
+}
+
+.lesson-chat-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 14px;
+  border: 1px solid rgba(37, 211, 102, .55);
+  border-radius: 12px;
+  color: #f4fff8;
+  background-color: #176b48;
+  box-shadow: 0 5px 16px rgba(13, 69, 44, .24);
+  font-size: 11px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color .18s, transform .18s, box-shadow .18s;
+}
+
+.lesson-chat-contact:hover {
+  transform: translateY(-1px);
+  background-color: #1b8055;
+  box-shadow: 0 8px 20px rgba(13, 69, 44, .35);
+}
+
+.lesson-chat-contact svg {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  fill: currentColor;
+}
+
+.lesson-chat-contact-arrow {
+  margin-left: 4px;
+  color: #c3edce;
+}
+
+.lesson-chat-suggestions {
+  display: flex;
+  gap: 7px;
+  padding: 0 13px 12px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.lesson-chat-suggestions button {
+  flex: 0 0 auto;
+  padding: 7px 9px;
+  border: 1px solid rgba(195, 168, 215, .3);
+  border-radius: 16px;
+  color: #e4d4ec;
+  background-color: #302638;
+  cursor: pointer;
+  font: 500 9px var(--font);
+}
+
+.lesson-chat-suggestions button:hover {
+  border-color: #d2b8e3;
+  background-color: #43364a;
+}
+
+.lesson-chat-form {
+  display: flex;
+  gap: 8px;
+  padding: 11px 13px;
+  border-top: 1px solid var(--line);
+}
+
+.lesson-chat-form input {
+  flex: 1;
+  min-width: 0;
+  height: 41px;
+  padding: 0 12px;
+  border: 1px solid rgba(196, 181, 207, .25);
+  border-radius: 11px;
+  outline: none;
+  color: var(--text);
+  background-color: #17141c;
+  font: 11px var(--font);
+}
+
+.lesson-chat-form input:focus {
+  border-color: #c3a8d7;
+  box-shadow: 0 0 0 3px rgba(195, 168, 215, .13);
+}
+
+.lesson-chat-form input::placeholder {
+  color: #a99caf;
+}
+
+.lesson-chat-form button {
+  width: 41px;
+  height: 41px;
+  border: 0;
+  border-radius: 11px;
+  color: #fffaff;
+  background-color: #765985;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.lesson-chat-typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 53px;
+}
+
+.lesson-chat-typing span {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #d2b8e3;
+  animation: lesson-chat-typing 1s ease-in-out infinite;
+}
+
+.lesson-chat-typing span:nth-child(2) {
+  animation-delay: .14s;
+}
+
+.lesson-chat-typing span:nth-child(3) {
+  animation-delay: .28s;
+}
+
+@keyframes lesson-chat-typing {
+  0%, 60%, 100% { opacity: .4; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-4px); }
+}
+
+.lesson-chat-toggle:focus-visible,
+.lesson-chat-panel button:focus-visible,
+.lesson-chat-panel a:focus-visible {
+  outline: 2px solid #e3c16e;
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .lesson-chat-toggle {
+    right: 16px;
+    bottom: 16px;
+    width: 58px;
+    height: 58px;
+  }
+
+  .lesson-chat-prompt {
+    right: 87px;
+    bottom: 86px;
+    padding: 9px 11px;
+    font-size: 10px;
+  }
+
+  .lesson-chat-panel {
+    right: 12px;
+    bottom: 72px;
+    width: calc(100vw - 24px);
+    height: min(540px, calc(100dvh - 88px));
+    min-height: 360px;
+  }
+
+  .lesson-chat-header {
+    min-height: 76px;
+    padding: 12px;
+  }
+
+  .lesson-chat-avatar {
+    width: 39px;
+    height: 39px;
+  }
+
+  .lesson-chat-header-actions {
+    gap: 8px;
+  }
+}
+
+/* Calm, high-contrast palette shared by the landing page and the exam. */
+body {
+  background-color: #f5f7fa;
+  color: #263445;
+}
+
+.topbar {
+  border-color: #e4e9ef;
+}
+
+.nav-link,
+.topbar .main-nav .nav-link {
+  color: #526174;
+}
+
+.nav-link:hover,
+.nav-link.active,
+.topbar .main-nav .nav-link:hover {
+  color: #315d68;
+}
+
+.topbar .main-nav .nav-link,
+.top-action {
+  border-color: #dce5e9;
+  background-color: #fff;
+}
+
+.top-action {
+  color: #315d68;
+}
+
+.top-action:hover {
+  border-color: #b9cdd2;
+  background-color: #f1f6f7;
+}
+
+.topbar .main-nav .nav-button-exam,
+.topbar .main-nav .nav-button-exam:hover,
+.hero-cta,
+.solve-button,
+.about-cta,
+.login-submit,
+.exam-primary,
+.finish-exam.is-confirming {
+  border-color: #557f89;
+  color: #fff;
+  background-color: #557f89;
+}
+
+.topbar .main-nav .nav-button-exam:hover,
+.hero-cta:hover,
+.solve-button:hover,
+.exam-primary:hover:not(:disabled) {
+  background-color: #426d77;
+}
+
+.hero h1,
+.how-heading h2,
+.section-heading h2,
+.about-copy h2,
+.about-stats-heading h2,
+.exam-intro h1,
+.exam-card-heading h2,
+.question-title,
+.exam-result h2 {
+  color: #263445;
+}
+
+.hero h1 span,
+.about-copy h2 span,
+.about-stats-heading h2 span,
+.exam-intro h1 span,
+.how-heading h2 span {
+  color: #557f89;
+  -webkit-text-fill-color: currentColor;
+}
+
+.eyebrow,
+.hero-lede,
+.exam-intro > p,
+.about-intro,
+.about-experience,
+.about-milestone p,
+.how-card p,
+.exam-card-heading > p {
+  color: #5f6e80;
+}
+
+.eyebrow-dot,
+.art-label i,
+.ready-badge i {
+  background-color: #668f87;
+  box-shadow: none;
+}
+
+.art-card,
+.input-panel,
+.result-panel,
+.how-card,
+.word-visual,
+.word-explanation-panel,
+.about-stat,
+.login-screen,
+.dashboard-screen,
+.summary-card,
+.schedule-card,
+.exam-card,
+.exam-facts span,
+.exam-field input,
+.exam-field select,
+.student-level-display,
+.question-option,
+.result-breakdown > div,
+.review-item {
+  border-color: #e2e8ef;
+  background-color: #fff;
+  box-shadow: 0 8px 26px rgba(35, 57, 78, .055);
+}
+
+.art-card {
+  background-color: #fff;
+}
+
+.art-label,
+.art-card-foot,
+.panel-title,
+.how-card h3,
+.solution-problem strong,
+.solution-step strong,
+.answer-box strong,
+.exam-facts span,
+.exam-field,
+.student-name-display,
+.timer-value,
+.quiz-count strong,
+.question-title,
+.option-text,
+.exam-result h2,
+.result-score-value strong,
+.result-breakdown strong,
+.review-item-heading strong {
+  color: #29394b;
+}
+
+.floating-math,
+.example-chip,
+.mode-tabs,
+.mode-tab.selected,
+.mode-tab:hover {
+  border-color: #dce5e9;
+  color: #405d68;
+  background-color: #f5f8f9;
+  box-shadow: none;
+}
+
+.mode-tab {
+  color: #5f6e80;
+}
+
+.mode-tab.selected {
+  border-color: #c8d9dc;
+  color: #315d68;
+  background-color: #eaf2f3;
+}
+
+#problem-input,
+.exam-field input,
+.exam-field select,
+.lesson-chat-form input {
+  border-color: #d5dee7;
+  color: #263445;
+  background-color: #fbfcfd;
+}
+
+#problem-input::placeholder,
+.exam-field input::placeholder,
+.lesson-chat-form input::placeholder {
+  color: #8793a2;
+}
+
+#problem-input:focus,
+.exam-field input:focus,
+.exam-field select:focus,
+.lesson-chat-form input:focus {
+  border-color: #7097a0;
+  box-shadow: 0 0 0 3px rgba(85, 127, 137, .13);
+}
+
+.exam-field select option {
+  color: #263445;
+  background-color: #fff;
+}
+
+.drawing-canvas,
+.upload-zone,
+.image-preview,
+.word-stage {
+  border-color: #dce5e9;
+  color: #526174;
+  background-color: #f8fafb;
+}
+
+.upload-zone:hover,
+.upload-zone.dragover {
+  border-color: #7d9fa6;
+  background-color: #f0f6f6;
+}
+
+.upload-zone strong,
+.upload-zone u,
+.clear-canvas,
+.recognize-button {
+  color: #456f79;
+}
+
+.recognize-button {
+  border-color: #d1e0e2;
+  background-color: #f0f6f6;
+}
+
+.input-hint,
+.privacy-note,
+.privacy-note span,
+.graph-caption,
+.empty-state p,
+.solution-step,
+.mini-label,
+.answer-box > span,
+.how-card p,
+.footer,
+.exam-privacy,
+.quiz-count,
+.quiz-count strong,
+.answered-count,
+.skip-hint,
+.result-greeting,
+.result-score-value span,
+.result-breakdown span,
+.result-phone,
+.review-prompt,
+.review-answer,
+.exam-bottom-note {
+  color: #657487;
+}
+
+.solve-row,
+.result-topline,
+.graph-footer,
+.how-section,
+.footer,
+.quiz-footer,
+.result-review {
+  border-color: #e4e9ef;
+}
+
+.ready-badge,
+.graph-dot,
+.stat-ring,
+.timer-dial,
+.result-score-ring {
+  color: #557f89;
+}
+
+.empty-illustration > span,
+.how-icon,
+.how-icon.purple,
+.how-icon.mint,
+.result-symbol {
+  border-color: #d5e3e5;
+  color: #4c7882;
+  background-color: #eef5f5;
+}
+
+.solution-problem,
+.word-visual,
+.word-stage {
+  border-left-color: #668f87;
+  background-color: #f4f8f8;
+}
+
+.solution-problem strong,
+.solution-step strong {
+  color: #29394b;
+}
+
+.solution-step,
+.word-group-label,
+.word-visual-equation {
+  color: #526174;
+}
+
+.solution-step b {
+  color: #426d77;
+  background-color: #e7f0f1;
+}
+
+.answer-box {
+  border-color: #d3e4dc;
+  background-color: #f1f8f4;
+}
+
+.answer-box > span,
+.answer-box strong {
+  color: #356a57;
+}
+
+.about-quote {
+  border-color: #e3e9ee;
+  border-left-color: #668f87;
+  color: #48596d;
+  background-color: #f1f5f7;
+}
+
+.about-photo-frame {
+  background-color: #fff;
+}
+
+.about-photo-wrap::before,
+.about-photo-frame::after,
+.about-milestone::before {
+  background-color: #668f87;
+}
+
+.about-stat:nth-child(1) .stat-ring,
+.about-stat:nth-child(1) .stat-value strong,
+.about-stat:nth-child(2) .stat-ring,
+.about-stat:nth-child(2) .stat-value strong,
+.about-stat:nth-child(3) .stat-ring,
+.about-stat:nth-child(3) .stat-value strong {
+  color: #557f89;
+}
+
+.example-chip {
+  color: #405d68;
+}
+
+.example-chip span,
+.note-stars,
+.legend-dot,
+.math-two,
+.result-pill,
+.result-pill *,
+.step-counter,
+.exam-facts i,
+.student-level-display,
+.question-topic,
+.option-check,
+.exam-bottom-note span {
+  color: #557f89;
+}
+
+.example-chip:hover,
+.exam-secondary:hover:not(:disabled) {
+  border-color: #b8cdd1;
+  color: #315d68;
+  background-color: #f0f6f6;
+}
+
+.exam-card {
+  background-color: #fff;
+}
+
+.exam-facts span {
+  background-color: #f8fafb;
+}
+
+.student-level-display,
+.question-topic {
+  border-color: #d7e5e6;
+  color: #456f79;
+  background-color: #f0f6f6;
+}
+
+.quiz-timer {
+  border-color: #d7e5e6;
+  background-color: #f3f8f8;
+  box-shadow: none;
+}
+
+.timer-copy small,
+.question-state,
+.exam-field small {
+  color: #657487;
+}
+
+.quiz-progress {
+  background-color: #e8edf1;
+}
+
+.quiz-progress span,
+.question-option input:checked ~ .option-key {
+  background-color: #557f89;
+}
+
+.question-option {
+  color: #35465a;
+  background-color: #fff;
+}
+
+.question-option:hover,
+.question-option:focus-within {
+  border-color: #a9c2c7;
+  background-color: #f6f9fa;
+}
+
+.option-key {
+  border-color: #dce4eb;
+  color: #526174;
+  background-color: #f5f7f9;
+}
+
+.question-option input:checked ~ .option-key {
+  border-color: #557f89;
+  color: #fff;
+}
+
+.exam-secondary {
+  border-color: #d7e0e7;
+  color: #405166;
+  background-color: #f7f9fa;
+}
+
+.result-symbol {
+  color: #557f89;
+}
+
+.review-item-heading strong,
+.review-prompt,
+.review-answer strong {
+  color: #35465a;
+}
+
+.review-result.is-correct {
+  color: #39765c;
+}
+
+.review-result.is-wrong,
+.exam-error {
+  color: #a4474c;
+}
+
+.review-result.is-blank {
+  color: #8b6a2d;
+}
+
+.menu-toggle,
+.main-nav.open {
+  border-color: #dce5e9;
+  background-color: #fff;
+}
+
+.menu-toggle span {
+  background-color: #405166;
+}
+
+.lesson-chat-toggle {
+  border-color: #d8e5e6;
+  color: #fff;
+  background-color: #557f89;
+  box-shadow: 0 8px 22px rgba(39, 72, 81, .18);
+}
+
+.lesson-chat-toggle:hover,
+.lesson-chat-form button {
+  background-color: #426d77;
+}
+
+.lesson-chat-toggle-mark {
+  border-color: rgba(255, 255, 255, .48);
+  color: #fff;
+  background-color: #426d77;
+}
+
+.lesson-chat-toggle::after {
+  border-color: #fff;
+}
+
+.lesson-chat-prompt,
+.lesson-chat-panel {
+  border-color: #dce5e9;
+  color: #263445;
+  background-color: #fff;
+  box-shadow: 0 16px 42px rgba(35, 57, 78, .16);
+}
+
+.lesson-chat-prompt,
+.lesson-chat-prompt::after {
+  color: #35465a;
+  background-color: #fff;
+}
+
+.lesson-chat-header {
+  border-color: #e4e9ef;
+  background-color: #f7f9fa;
+}
+
+.lesson-chat-avatar {
+  border-color: #d7e5e6;
+  color: #456f79;
+  background-color: #edf4f5;
+}
+
+.lesson-chat-header h2 {
+  color: #263445;
+}
+
+.lesson-chat-header p,
+.lesson-chat-online {
+  color: #657487;
+}
+
+.lesson-chat-close,
+.lesson-chat-suggestions button {
+  border-color: #dce5e9;
+  color: #405d68;
+  background-color: #f7f9fa;
+}
+
+.lesson-chat-close:hover,
+.lesson-chat-suggestions button:hover {
+  border-color: #b9cdd2;
+  background-color: #edf4f5;
+}
+
+.lesson-chat-message {
+  border-color: #e2e8ef;
+  color: #35465a;
+  background-color: #f5f7fa;
+}
+
+.lesson-chat-message.is-user {
+  border-color: #557f89;
+  color: #fff;
+  background-color: #557f89;
+}
+
+.lesson-chat-form {
+  border-color: #e4e9ef;
+}
+
+.lesson-chat-form button {
+  color: #fff;
+}
+
+.lesson-chat-toggle:focus-visible,
+.lesson-chat-panel button:focus-visible,
+.lesson-chat-panel a:focus-visible {
+  outline-color: #557f89;
+}
+
+@media (max-width: 580px) {
+  .main-nav.open {
+    background-color: #fff;
+  }
+}
+
+.topbar .brand,
+.footer-brand {
+  padding: 5px 9px;
+  border-radius: 9px;
+  background-color: #31525c;
+}
+
+.eyebrow {
+  font-size: 10px;
+}
+
+.panel-title,
+.exam-field,
+.lesson-chat-message,
+.lesson-chat-form input {
+  font-size: 12px;
+}
+
+.input-hint,
+.privacy-note,
+.exam-field small,
+.exam-privacy,
+.footer {
+  font-size: 10px;
+}
+
+button:focus-visible,
+a:focus-visible,
+textarea:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline-color: #557f89;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.topbar {
+  border-color: #e6dfe7;
+}
+
+.topbar .brand {
+  padding: 6px 10px;
+  border-radius: 10px;
+  background-color: #44394b;
+}
+
+.topbar .main-nav .nav-link {
+  border-color: #ded4e1;
+  color: #594c60;
+  background-color: #fff;
+}
+
+.topbar .main-nav .nav-button-about:hover {
+  border-color: #94799f;
+  color: #584562;
+  background-color: #f0e9f2;
+}
+
+.topbar .main-nav .nav-button-exam,
+.topbar .main-nav .nav-button-exam:hover {
+  border-color: #765985;
+  color: #fff;
+  background-color: #765985;
+}
+
+.top-action,
+.exam-home-link {
+  border-color: #ded4e1;
+  color: #594c60;
+  background-color: #fff;
+}
+
+.menu-toggle {
+  border-color: #ded4e1;
+  background-color: #fff;
+}
+
+.menu-toggle span {
+  background-color: #594c60;
+}
+
+.main-nav.open {
+  border-color: #e5dde7;
+  background-color: #fff;
+  box-shadow: 0 12px 28px rgba(57, 42, 63, .12);
+}
+
+.main-nav.open .nav-link {
+  color: #514853;
+}
+
+.hero h1,
+.section-heading h2,
+.how-heading h2,
+.about-copy h2,
+.about-journey h3,
+.about-ending p,
+.about-stats-heading h2,
+.exam-intro h1 {
+  color: #342d38;
+}
+
+.hero h1 span,
+.about-copy h2 span,
+.about-stats-heading h2 span,
+.exam-intro h1 span {
+  color: #795b86;
+  -webkit-text-fill-color: currentColor;
+}
+
+.hero-lede,
+.section-heading > p,
+.about-copy > p,
+.about-milestone p,
+.about-copy > p.about-intro,
+.about-copy > p.about-experience,
+.exam-intro > p,
+.exam-card-heading > p {
+  color: #645b68;
+}
+
+.eyebrow {
+  color: #74687a;
+}
+
+.eyebrow-dot {
+  background-color: #ad5363;
+}
+
+.hero-art .art-orbit,
+.orbit-b {
+  border-color: rgba(121, 91, 134, .16);
+}
+
+.art-card,
+.input-panel,
+.result-panel,
+.how-card,
+.about-stat,
+.exam-card {
+  border-color: #e5dde7;
+  background-color: #fff;
+  box-shadow: 0 8px 26px rgba(57, 42, 63, .055);
+}
+
+.art-card {
+  box-shadow: 0 16px 38px rgba(57, 42, 63, .12);
+}
+
+.art-label,
+.art-dots,
+.art-card-foot,
+.floating-math,
+.section-heading > p,
+.panel-title,
+.step-counter,
+.mode-tab,
+.input-hint,
+.privacy-note,
+.draw-toolbar,
+.upload-zone,
+.upload-sub,
+.result-topline,
+.graph-footer,
+.mini-label,
+.answer-box > span,
+.about-stat p,
+.exam-facts span,
+.exam-field small,
+.student-name-display,
+.student-level-display,
+.quiz-count,
+.quiz-count strong,
+.question-state,
+.answered-count,
+.skip-hint,
+.result-greeting,
+.result-score-value strong,
+.result-score-value span,
+.result-phone,
+.result-review summary,
+.review-item-heading strong,
+.review-prompt,
+.review-answer,
+.exam-bottom-note {
+  color: #665c6b;
+}
+
+.art-label i,
+.ready-badge i {
+  background-color: #a45b67;
+  box-shadow: none;
+}
+
+.floating-math {
+  border-color: #e4dbe8;
+  background-color: #fff;
+  box-shadow: 0 5px 16px rgba(57, 42, 63, .1);
+}
+
+.mode-tabs {
+  border-color: #e7e0e8;
+  background-color: #f5f2f5;
+}
+
+.mode-tab:hover {
+  color: #403648;
+}
+
+.mode-tab.selected {
+  color: #62496f;
+  background-color: #eee6f0;
+  box-shadow: inset 0 0 0 1px #ded0e3;
+}
+
+#problem-input,
+.exam-field input,
+.exam-field select,
+.lesson-chat-form input {
+  border-color: #dcd4df;
+  color: #332d37;
+  background-color: #fff;
+}
+
+#problem-input::placeholder,
+.exam-field input::placeholder,
+.lesson-chat-form input::placeholder {
+  color: #89808d;
+}
+
+#problem-input:focus,
+.exam-field input:focus,
+.exam-field select:focus,
+.lesson-chat-form input:focus {
+  border-color: #92769f;
+  box-shadow: 0 0 0 3px rgba(121, 91, 134, .12);
+}
+
+.input-hint span,
+.step-counter,
+.clear-canvas,
+.upload-icon,
+.upload-zone u,
+.example-chip span,
+.graph-dot,
+.empty-illustration,
+.empty-illustration i,
+.empty-illustration b,
+.result-icon {
+  color: #795b86;
+}
+
+.solve-row,
+.result-topline,
+.graph-footer,
+.quiz-footer,
+.result-review {
+  border-color: #e8e2e9;
+}
+
+.privacy-note,
+.input-hint,
+.upload-sub,
+.empty-state p,
+.graph-caption,
+.mini-label,
+.answer-box > span {
+  color: #756b79;
+}
+
+.hero-cta,
+.solve-button,
+.about-cta,
+.about-cta:hover,
+.exam-primary,
+.login-submit {
+  border: 1px solid #6f527b;
+  color: #fff;
+  background-color: #765985;
+  box-shadow: 0 3px 8px rgba(80, 55, 89, .14);
+}
+
+.hero-cta:hover,
+.solve-button:hover,
+.about-cta:hover,
+.exam-primary:hover:not(:disabled) {
+  background-color: #654a70;
+}
+
+.drawing-canvas,
+.upload-zone,
+.image-preview,
+.empty-illustration > span {
+  border-color: #ded5e2;
+  color: #6d5079;
+  background-color: #f7f4f8;
+}
+
+.recognize-button {
+  border-color: #d9c9df;
+  color: #674d73;
+  background-color: #f4edf6;
+}
+
+.upload-zone:hover,
+.upload-zone.dragover {
+  border-color: #92769f;
+  background-color: #f4edf6;
+}
+
+.solution-problem {
+  border-left-color: #ad5363;
+  background-color: #fbf2f3;
+}
+
+.solution-problem strong,
+.solution-step,
+.solution-step strong,
+.empty-state h3 {
+  color: #39313e;
+}
+
+.solution-step b {
+  color: #70547b;
+  background-color: #efe7f1;
+}
+
+.answer-box {
+  border-color: #d8c8dd;
+  background-color: #f6f0f7;
+}
+
+.answer-box > span,
+.answer-box strong {
+  color: #684c74;
+}
+
+.about-section {
+  border-color: #e5dde7;
+}
+
+.about-photo-wrap::before {
+  border-color: #d8c8dd;
+  background-color: #eee7f0;
+}
+
+.about-photo-frame {
+  border-color: #e2dbe4;
+  background-color: #fff;
+  box-shadow: 0 12px 32px rgba(57, 42, 63, .12);
+}
+
+.about-milestone::before {
+  background-color: #b99dbf;
+}
+
+.about-year,
+.about-milestone:nth-child(2) .about-year {
+  border-color: #e2d7e5;
+  color: #6e5279;
+  background-color: #fff;
+}
+
+.about-quote {
+  border-color: #e6d9e8;
+  border-left-color: #ad5363;
+  color: #534956;
+  background-color: #f5eff4;
+}
+
+.about-quote::before {
+  color: #ad5363;
+}
+
+.about-stat {
+  border-color: #e5dde7;
+  background-color: #fff;
+  box-shadow: 0 7px 22px rgba(57, 42, 63, .05);
+}
+
+.about-stat:hover {
+  border-color: #cbb8d1;
+  box-shadow: 0 12px 26px rgba(57, 42, 63, .1);
+}
+
+.stat-ring,
+.about-stat:nth-child(1) .stat-ring,
+.about-stat:nth-child(1) .stat-value strong {
+  color: #795b86;
+}
+
+.about-stat:nth-child(2) .stat-ring,
+.about-stat:nth-child(2) .stat-value strong {
+  color: #ad5363;
+}
+
+.about-stat:nth-child(3) .stat-ring,
+.about-stat:nth-child(3) .stat-value strong {
+  color: #a77d27;
+}
+
+.stat-ring-track {
+  stroke: rgba(121, 91, 134, .17);
+}
+
+.stat-value span,
+.about-stat h3 {
+  color: #504653;
+}
+
+.footer {
+  border-color: #e5dde7;
+  color: #716876;
+}
+
+.exam-intro > .eyebrow {
+  color: #74687a;
+}
+
+.exam-facts span {
+  border-color: #e5dde7;
+  color: #574e5c;
+  background-color: #fff;
+}
+
+.exam-facts i {
+  color: #ad5363;
+}
+
+.exam-card-heading h2,
+.exam-result h2,
+.question-title {
+  color: #342d38;
+}
+
+.exam-field {
+  color: #514853;
+}
+
+.exam-field select option {
+  color: #332d37;
+  background-color: #fff;
+}
+
+.student-level-display,
+.question-topic {
+  border-color: #e3d6e6;
+  color: #684c74;
+  background-color: #f5eff6;
+}
+
+.quiz-count strong,
+.result-score-value strong,
+.result-breakdown strong {
+  color: #342d38;
+}
+
+.quiz-progress {
+  background-color: #eae4eb;
+}
+
+.quiz-progress span {
+  background-color: #795b86;
+}
+
+.question-title,
+.option-text,
+.review-prompt,
+.review-answer,
+.result-review summary {
+  color: #413844;
+}
+
+.question-option {
+  border-color: #e4dce6;
+  color: #514853;
+  background-color: #fff;
+}
+
+.question-option:hover,
+.question-option:focus-within {
+  border-color: #baa3c3;
+  background-color: #faf7fb;
+}
+
+.option-key {
+  border-color: #e3dbe5;
+  color: #6f6473;
+  background-color: #f7f4f7;
+}
+
+.question-option input:checked ~ .option-key {
+  border-color: #765985;
+  color: #fff;
+  background-color: #765985;
+}
+
+.option-check,
+.exam-bottom-note span {
+  color: #795b86;
+}
+
+.exam-secondary {
+  border-color: #dcd3df;
+  color: #574b5d;
+  background-color: #fff;
+}
+
+.exam-secondary:hover:not(:disabled) {
+  border-color: #bba8c4;
+  background-color: #f4eff6;
+}
+
+.result-symbol {
+  border-color: #dfd1e4;
+  color: #765985;
+  background-color: #f2ebf4;
+}
+
+.result-score-ring {
+  color: #795b86;
+}
+
+.result-score-track {
+  stroke: rgba(121, 91, 134, .17);
+}
+
+.result-breakdown > div,
+.review-item {
+  border-color: #e5dde7;
+  background-color: #fff;
+}
+
+.result-breakdown span,
+.result-greeting,
+.result-phone,
+.skip-hint {
+  color: #756b79;
+}
+
+.review-result.is-correct {
+  color: #377c54;
+}
+
+.review-result.is-wrong {
+  color: #a34453;
+}
+
+.review-result.is-blank {
+  color: #94701f;
+}
+
+.lesson-chat-panel {
+  border-color: #ded4e1;
+  color: #302a34;
+  background-color: #19171f;
+  box-shadow: 0 14px 40px rgba(53, 39, 59, .2);
+}
+
+.lesson-chat-header {
+  border-color: #e6dfe7;
+  background-color: #25222d;
+}
+
+.lesson-chat-header h2 {
+  color: #f4eff6;
+}
+
+.lesson-chat-header p,
+.lesson-chat-online {
+  color: #bdb1c4;
+}
+
+.lesson-chat-avatar {
+  border-color: rgba(210, 184, 227, .36);
+  color: #e2ccec;
+  background-color: #403447;
+}
+
+.lesson-chat-close {
+  border-color: rgba(220, 202, 229, .2);
+  color: #ded3e4;
+  background-color: #39313e;
+}
+
+.lesson-chat-close:hover {
+  border-color: rgba(220, 202, 229, .42);
+  background-color: #493d50;
+}
+
+.lesson-chat-messages {
+  background-color: #19171f;
+}
+
+.lesson-chat-message {
+  border-color: var(--line);
+  color: #eee8f1;
+  background-color: #302b36;
+}
+
+.lesson-chat-message.is-user {
+  border-color: #765985;
+  color: #fff;
+  background-color: #765985;
+}
+
+.lesson-chat-suggestions button {
+  border-color: rgba(195, 168, 215, .3);
+  color: #e4d4ec;
+  background-color: #302638;
+}
+
+.lesson-chat-suggestions button:hover {
+  border-color: #d2b8e3;
+  background-color: #43364a;
+}
+
+.lesson-chat-form {
+  border-color: var(--line);
+  background-color: #19171f;
+}
+
+.lesson-chat-form button {
+  color: #fff;
+  background-color: #765985;
+}
+
+.lesson-chat-prompt {
+  border-color: rgba(210, 184, 227, .28);
+  color: #eee5f2;
+  background-color: #302638;
+  box-shadow: 0 5px 16px rgba(10, 7, 16, .25);
+}
+
+.lesson-chat-prompt::after {
+  border-color: rgba(210, 184, 227, .28);
+  background-color: #302638;
+}
+
+.lesson-chat-prompt:hover {
+  border-color: rgba(210, 184, 227, .5);
+  background-color: #3b2e43;
+}
+
+.lesson-chat-toggle {
+  border-color: #fff;
+  background-color: #765985;
+  box-shadow: 0 5px 16px rgba(53, 39, 59, .24), inset 0 0 0 4px rgba(255, 255, 255, .12);
+}
+
+.lesson-chat-toggle:hover {
+  background-color: #654a70;
+}
+
+.lesson-chat-toggle-mark {
+  border-color: rgba(255, 255, 255, .45);
+  color: #fff;
+  background-color: #654a70;
+}
+
+.lesson-chat-toggle::after {
+  border-color: #19171f;
+}
+
+@media (max-width: 760px) {
+  .topbar .brand {
+    padding: 5px 8px;
+  }
+}
+
+body {
+  color: var(--text);
+  background-color: var(--bg);
+}
+
+.topbar {
+  border-color: var(--line);
+}
+
+.topbar .brand {
+  background-color: transparent;
+}
+
+.topbar .main-nav .nav-link {
+  border-color: #51465a;
+  color: #e3dce8;
+  background-color: #25222d;
+}
+
+.topbar .main-nav .nav-button-about:hover {
+  border-color: #92769f;
+  color: #f7fbfc;
+  background-color: #342b3b;
+}
+
+.topbar .main-nav .nav-button-exam,
+.topbar .main-nav .nav-button-exam:hover,
+.hero-cta,
+.solve-button,
+.about-cta,
+.about-cta:hover,
+.exam-primary,
+.login-submit,
+.question-option input:checked ~ .option-key {
+  border-color: #765985;
+  color: #fff9ff;
+  background-color: #765985;
+  box-shadow: none;
+}
+
+.hero-cta:hover,
+.solve-button:hover,
+.about-cta:hover,
+.exam-primary:hover:not(:disabled) {
+  background-color: #89689a;
+}
+
+.top-action,
+.exam-home-link {
+  border-color: rgba(210, 184, 227, .28);
+  color: #ded3e4;
+  background-color: #25222d;
+}
+
+.menu-toggle {
+  border-color: var(--line);
+  background-color: transparent;
+}
+
+.menu-toggle span {
+  background-color: #d3c8d8;
+}
+
+.main-nav.open {
+  border-color: var(--line);
+  background-color: #25222d;
+  box-shadow: 0 15px 35px #0008;
+}
+
+.hero h1,
+.section-heading h2,
+.how-heading h2,
+.about-copy h2,
+.about-journey h3,
+.about-ending p,
+.about-stats-heading h2,
+.exam-intro h1,
+.exam-card-heading h2,
+.exam-result h2,
+.question-title {
+  color: #f3eff5;
+}
+
+.hero h1 span,
+.about-copy h2 span,
+.about-stats-heading h2 span,
+.exam-intro h1 span {
+  color: #d2b8e3;
+  -webkit-text-fill-color: currentColor;
+}
+
+.hero-lede,
+.section-heading > p,
+.about-copy > p,
+.about-milestone p,
+.about-copy > p.about-intro,
+.about-copy > p.about-experience,
+.exam-intro > p,
+.exam-card-heading > p {
+  color: #b7adbd;
+}
+
+.eyebrow {
+  color: #b7adbd;
+}
+
+.eyebrow-dot,
+.art-label i,
+.ready-badge i {
+  background-color: #d2b8e3;
+}
+
+.art-card,
+.input-panel,
+.result-panel,
+.how-card,
+.about-stat,
+.exam-card,
+.exam-facts span,
+.exam-field input,
+.exam-field select,
+.question-option,
+.result-breakdown > div,
+.review-item {
+  border-color: var(--line);
+  background-color: var(--surface);
+  box-shadow: none;
+}
+
+.art-label,
+.art-dots,
+.art-card-foot,
+.floating-math,
+.panel-title,
+.step-counter,
+.mode-tab,
+.input-hint,
+.privacy-note,
+.draw-toolbar,
+.upload-zone,
+.upload-sub,
+.result-topline,
+.graph-footer,
+.mini-label,
+.about-stat p,
+.exam-facts span,
+.exam-field small,
+.student-name-display,
+.student-level-display,
+.quiz-count,
+.quiz-count strong,
+.question-state,
+.answered-count,
+.skip-hint,
+.result-greeting,
+.result-score-value strong,
+.result-score-value span,
+.result-phone,
+.result-review summary,
+.review-item-heading strong,
+.review-prompt,
+.review-answer,
+.exam-bottom-note {
+  color: #b7adbd;
+}
+
+.floating-math {
+  border-color: var(--line);
+  background-color: #25222d;
+  box-shadow: 0 9px 24px rgba(0, 0, 0, .22);
+}
+
+.mode-tabs {
+  border-color: rgba(196, 181, 207, .16);
+  background-color: #17141e;
+}
+
+.mode-tab.selected {
+  color: #e4d7eb;
+  background-color: #43364a;
+  box-shadow: inset 0 0 0 1px rgba(210, 184, 227, .2);
+}
+
+#problem-input,
+.exam-field input,
+.exam-field select {
+  border-color: rgba(196, 181, 207, .22);
+  color: #f3eff5;
+  background-color: #17141e;
+}
+
+#problem-input::placeholder,
+.exam-field input::placeholder {
+  color: #8d8293;
+}
+
+.drawing-canvas,
+.upload-zone,
+.image-preview,
+.empty-illustration > span {
+  border-color: rgba(196, 181, 207, .2);
+  color: #d2b8e3;
+  background-color: #17141e;
+}
+
+.recognize-button {
+  border-color: rgba(210, 184, 227, .28);
+  color: #d2b8e3;
+  background-color: rgba(121, 91, 134, .15);
+}
+
+.upload-zone:hover,
+.upload-zone.dragover {
+  border-color: #92769f;
+  background-color: rgba(121, 91, 134, .12);
+}
+
+.solution-problem {
+  border-left-color: #ce7182;
+  background-color: rgba(173, 83, 99, .12);
+}
+
+.solution-problem strong,
+.solution-step,
+.solution-step strong,
+.empty-state h3 {
+  color: #e6dfe9;
+}
+
+.solution-step b {
+  color: #d2b8e3;
+  background-color: rgba(121, 91, 134, .22);
+}
+
+.answer-box {
+  border-color: rgba(210, 184, 227, .24);
+  background-color: rgba(121, 91, 134, .12);
+}
+
+.answer-box > span,
+.answer-box strong {
+  color: #d2b8e3;
+}
+
+.about-section,
+.solve-row,
+.result-topline,
+.graph-footer,
+.quiz-footer,
+.result-review {
+  border-color: var(--line);
+}
+
+.about-photo-wrap::before {
+  border-color: rgba(210, 184, 227, .24);
+  background-color: #43364a;
+}
+
+.about-photo-frame {
+  border-color: rgba(224, 233, 255, .2);
+  background-color: #25222d;
+  box-shadow: 0 18px 48px rgba(0, 0, 0, .3);
+}
+
+.about-milestone::before {
+  background-color: #765985;
+}
+
+.about-year,
+.about-milestone:nth-child(2) .about-year {
+  border-color: rgba(210, 184, 227, .28);
+  color: #d2b8e3;
+  background-color: #25222d;
+}
+
+.about-quote {
+  border-color: rgba(210, 184, 227, .2);
+  border-left-color: #ce7182;
+  color: #d4cad9;
+  background-color: #30252e;
+}
+
+.about-stat {
+  border-color: var(--line);
+  background-color: #25222d;
+  box-shadow: none;
+}
+
+.about-stat:hover {
+  border-color: rgba(210, 184, 227, .38);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, .18);
+}
+
+.stat-value span,
+.about-stat h3 {
+  color: #e3dce8;
+}
+
+.footer {
+  border-color: var(--line);
+  color: #b7adbd;
+}
+
+.exam-facts span {
+  border-color: var(--line);
+  color: #c9becd;
+  background-color: #25222d;
+}
+
+.exam-facts i {
+  color: #d2b8e3;
+}
+
+.exam-field {
+  color: #e3dce8;
+}
+
+.exam-field select option {
+  color: #f3eff5;
+  background-color: #25222d;
+}
+
+.student-level-display,
+.question-topic {
+  border-color: rgba(210, 184, 227, .2);
+  color: #d2b8e3;
+  background-color: rgba(121, 91, 134, .14);
+}
+
+.quiz-count strong,
+.result-score-value strong,
+.result-breakdown strong {
+  color: #f3eff5;
+}
+
+.quiz-progress {
+  background-color: rgba(196, 181, 207, .13);
+}
+
+.quiz-progress span {
+  background-color: #c3a8d7;
+}
+
+.question-option {
+  border-color: var(--line);
+  color: #ddd4e2;
+  background-color: #201d26;
+}
+
+.question-option:hover,
+.question-option:focus-within {
+  border-color: rgba(195, 168, 215, .55);
+  background-color: #2e2833;
+}
+
+.footer-socials {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-socials a {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: #d2b8e3;
+  background-color: #25222d;
+  transition: color .2s, border-color .2s, background-color .2s, transform .2s;
+}
+
+.footer-socials a:hover,
+.footer-socials a:focus-visible {
+  transform: translateY(-2px);
+  border-color: #92769f;
+  color: #f3eff5;
+  background-color: #342b3b;
+}
+
+.footer-socials a:focus-visible {
+  outline: 2px solid #d2b8e3;
+  outline-offset: 3px;
+}
+
+.footer-socials svg {
+  width: 16px;
+  height: 16px;
+  overflow: visible;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+}
+
+.footer-socials .social-icon-fill {
+  fill: currentColor;
+  stroke: none;
+}
+
+.option-text {
+  color: #f0eaf3;
+}
+
+.option-key {
+  border-color: var(--line);
+  color: #e3dce8;
+  background-color: rgba(255, 255, 255, .03);
+}
+
+.exam-secondary {
+  border-color: var(--line);
+  color: #c9becd;
+  background-color: rgba(255, 255, 255, .03);
+}
+
+.exam-secondary:hover:not(:disabled) {
+  border-color: rgba(195, 168, 215, .4);
+  background-color: rgba(121, 91, 134, .14);
+}
+
+.result-symbol {
+  border-color: rgba(210, 184, 227, .25);
+  color: #d2b8e3;
+  background-color: #43364a;
+}
+
+.result-score-ring {
+  color: #c3a8d7;
+}
+
+.result-score-track {
+  stroke: rgba(195, 168, 215, .16);
+}
+
+.result-breakdown > div,
+.review-item {
+  border-color: var(--line);
+  background-color: rgba(255, 255, 255, .025);
+}
+
+.result-breakdown span,
+.result-greeting,
+.result-phone,
+.skip-hint {
+  color: #a99eaf;
+}
+
+.review-result.is-correct {
+  color: #73ddc1;
+}
+
+.review-result.is-wrong {
+  color: #ff9eae;
+}
+
+.review-result.is-blank {
+  color: #e1c17b;
+}
+
+.lesson-chat-panel {
+  border-color: rgba(210, 184, 227, .32);
+  color: #f3eff5;
+  background-color: #211d27;
+  box-shadow: 0 22px 65px rgba(5, 3, 10, .55);
+}
+
+.lesson-chat-header {
+  border-color: rgba(210, 184, 227, .18);
+  background-color: #2b2530;
+}
+
+.lesson-chat-header h2 {
+  color: #f4eff6;
+}
+
+.lesson-chat-header p,
+.lesson-chat-online {
+  color: #bdb1c4;
+}
+
+.lesson-chat-avatar {
+  border-color: rgba(210, 184, 227, .36);
+  color: #e2ccec;
+  background-color: #403447;
+}
+
+.lesson-chat-close {
+  border-color: rgba(220, 202, 229, .2);
+  color: #ded3e4;
+  background-color: #39313e;
+}
+
+.lesson-chat-close:hover {
+  border-color: rgba(220, 202, 229, .42);
+  background-color: #493d50;
+}
+
+.lesson-chat-message {
+  border-color: var(--line);
+  color: #eee8f1;
+  background-color: #302b36;
+}
+
+.lesson-chat-message.is-user {
+  border-color: rgba(195, 168, 215, .35);
+  color: #fffaff;
+  background-color: #62496f;
+}
+
+.lesson-chat-suggestions button {
+  border-color: rgba(195, 168, 215, .3);
+  color: #e4d4ec;
+  background-color: #302638;
+}
+
+.lesson-chat-suggestions button:hover {
+  border-color: #d2b8e3;
+  background-color: #43364a;
+}
+
+.lesson-chat-form {
+  border-color: var(--line);
+  background-color: #211d27;
+}
+
+.lesson-chat-form input {
+  border-color: rgba(196, 181, 207, .25);
+  color: var(--text);
+  background-color: #17141c;
+}
+
+.lesson-chat-prompt {
+  border-color: rgba(210, 184, 227, .28);
+  color: #eee5f2;
+  background-color: #302638;
+}
+
+.lesson-chat-prompt::after {
+  border-color: rgba(210, 184, 227, .28);
+  background-color: #302638;
+}
+
+.lesson-chat-prompt:hover {
+  border-color: rgba(210, 184, 227, .5);
+  background-color: #3b2e43;
+}
+
+.lesson-chat-toggle {
+  background-color: #765985;
+}
+
+.lesson-chat-toggle:hover {
+  background-color: #89689a;
+}
+
+.lesson-chat-toggle-mark {
+  border-color: rgba(255, 248, 255, .42);
+  color: #fff5dc;
+  background-color: #5d4569;
+}
+
+.lesson-chat-toggle::after {
+  border-color: #19171f;
+}
+
+.lesson-chat-contact {
+  color: #f4fff8;
+  background-color: #176b48;
+}
+
+/* Keep the light palette last so it also overrides legacy theme rules above. */
+:root {
+  color-scheme: light;
+  --bg: #f5f7fa;
+  --surface: #fff;
+  --line: #e2e8ef;
+  --text: #263445;
+  --muted: #657487;
+  --blue: #557f89;
+  --purple: #766b9d;
+}
+
+body {
+  color: #263445;
+  background-color: #f5f7fa;
+}
+
+.topbar,
+.footer,
+.how-section,
+.solve-row,
+.result-topline,
+.graph-footer,
+.quiz-footer,
+.result-review {
+  border-color: #e2e8ef;
+}
+
+.nav-link,
+.topbar .main-nav .nav-link {
+  color: #526174;
+  background-color: #fff;
+}
+
+.nav-link:hover,
+.nav-link.active,
+.topbar .main-nav .nav-link:hover {
+  color: #315d68;
+}
+
+.top-action,
+.topbar .main-nav .nav-button-exam,
+.topbar .main-nav .nav-button-exam:hover {
+  border-color: #dce5e9;
+  color: #315d68;
+  background-color: #fff;
+  box-shadow: none;
+}
+
+.top-action:hover,
+.topbar .main-nav .nav-button-exam:hover {
+  background-color: #f1f6f7;
+}
+
+.hero h1,
+.section-heading h2,
+.how-heading h2,
+.about-copy h2,
+.about-stats-heading h2,
+.exam-intro h1,
+.exam-card-heading h2,
+.question-title,
+.exam-result h2,
+.panel-title,
+.how-card h3 {
+  color: #263445;
+}
+
+.hero h1 span,
+.about-copy h2 span,
+.about-stats-heading h2 span,
+.exam-intro h1 span,
+.how-heading h2 span {
+  color: #557f89;
+  -webkit-text-fill-color: currentColor;
+}
+
+.eyebrow,
+.hero-lede,
+.exam-intro > p,
+.about-intro,
+.about-experience,
+.about-milestone p,
+.how-card p,
+.exam-card-heading > p,
+.input-hint,
+.privacy-note,
+.graph-caption,
+.empty-state p,
+.solution-step,
+.footer,
+.exam-privacy,
+.quiz-count,
+.answered-count,
+.skip-hint,
+.result-greeting,
+.result-phone,
+.review-prompt,
+.review-answer,
+.exam-bottom-note {
+  color: #657487;
+}
+
+.input-panel,
+.result-panel,
+.how-card,
+.art-card,
+.about-stat,
+.exam-card,
+.exam-facts span,
+.exam-field input,
+.exam-field select,
+.question-option,
+.result-breakdown > div,
+.review-item {
+  border-color: #e2e8ef;
+  background-color: #fff;
+  box-shadow: 0 8px 26px rgba(35, 57, 78, .055);
+}
+
+.hero-cta,
+.solve-button,
+.about-cta,
+.login-submit,
+.exam-primary,
+.finish-exam.is-confirming {
+  border-color: #557f89;
+  color: #fff;
+  background-color: #557f89;
+  box-shadow: none;
+}
+
+.hero-cta:hover,
+.solve-button:hover,
+.exam-primary:hover:not(:disabled) {
+  background-color: #426d77;
+}
+
+.mode-tabs,
+.mode-tab.selected,
+.example-chip,
+.exam-facts span,
+.exam-secondary,
+.student-level-display,
+.question-topic {
+  border-color: #dce5e9;
+  color: #405d68;
+  background-color: #f5f8f9;
+}
+
+.mode-tab {
+  color: #5f6e80;
+}
+
+.mode-tab.selected {
+  color: #315d68;
+  background-color: #eaf2f3;
+}
+
+#problem-input,
+.exam-field input,
+.exam-field select,
+.lesson-chat-form input {
+  border-color: #d5dee7;
+  color: #263445;
+  background-color: #fbfcfd;
+}
+
+#problem-input::placeholder,
+.exam-field input::placeholder,
+.lesson-chat-form input::placeholder {
+  color: #8793a2;
+}
+
+#problem-input:focus,
+.exam-field input:focus,
+.exam-field select:focus,
+.lesson-chat-form input:focus {
+  border-color: #7097a0;
+  box-shadow: 0 0 0 3px rgba(85, 127, 137, .13);
+}
+
+.drawing-canvas,
+.upload-zone,
+.image-preview,
+.word-stage {
+  border-color: #dce5e9;
+  color: #526174;
+  background-color: #f8fafb;
+}
+
+.upload-zone:hover,
+.upload-zone.dragover {
+  border-color: #7d9fa6;
+  background-color: #f0f6f6;
+}
+
+.upload-zone strong,
+.upload-zone u,
+.clear-canvas,
+.recognize-button,
+.step-counter,
+.exam-facts i,
+.student-level-display,
+.question-topic,
+.option-check,
+.exam-bottom-note span {
+  color: #456f79;
+}
+
+.recognize-button {
+  border-color: #d1e0e2;
+  background-color: #f0f6f6;
+}
+
+.solution-problem,
+.word-visual,
+.word-stage {
+  border-color: #dce5e9;
+  background-color: #f4f8f8;
+}
+
+.solution-problem strong,
+.solution-step strong,
+.exam-field,
+.student-name-display,
+.timer-value,
+.question-title,
+.option-text,
+.exam-result h2,
+.result-score-value strong,
+.result-breakdown strong,
+.review-item-heading strong {
+  color: #29394b;
+}
+
+.answer-box {
+  border-color: #d3e4dc;
+  background-color: #f1f8f4;
+}
+
+.answer-box > span,
+.answer-box strong {
+  color: #356a57;
+}
+
+.about-quote {
+  border-color: #e3e9ee;
+  border-left-color: #668f87;
+  color: #48596d;
+  background-color: #f1f5f7;
+}
+
+.about-stat:nth-child(1) .stat-ring,
+.about-stat:nth-child(1) .stat-value strong,
+.about-stat:nth-child(2) .stat-ring,
+.about-stat:nth-child(2) .stat-value strong,
+.about-stat:nth-child(3) .stat-ring,
+.about-stat:nth-child(3) .stat-value strong,
+.ready-badge,
+.graph-dot,
+.stat-ring,
+.timer-dial,
+.result-score-ring {
+  color: #557f89;
+}
+
+.exam-card {
+  background-color: #fff;
+}
+
+.exam-field small,
+.timer-copy small,
+.question-state,
+.result-breakdown span {
+  color: #657487;
+}
+
+.quiz-progress {
+  background-color: #e8edf1;
+}
+
+.quiz-progress span,
+.question-option input:checked ~ .option-key {
+  background-color: #557f89;
+}
+
+.question-option {
+  color: #35465a;
+}
+
+.option-key {
+  border-color: #dce4eb;
+  color: #526174;
+  background-color: #f5f7f9;
+}
+
+.question-option input:checked ~ .option-key {
+  border-color: #557f89;
+  color: #fff;
+}
+
+.exam-secondary:hover:not(:disabled) {
+  border-color: #b8cdd1;
+  color: #315d68;
+  background-color: #f0f6f6;
+}
+
+.review-result.is-correct {
+  color: #39765c;
+}
+
+.review-result.is-wrong,
+.exam-error {
+  color: #a4474c;
+}
+
+.review-result.is-blank {
+  color: #8b6a2d;
+}
+
+.menu-toggle,
+.main-nav.open {
+  border-color: #dce5e9;
+  background-color: #fff;
+}
+
+.menu-toggle span {
+  background-color: #405166;
+}
+
+.lesson-chat-toggle,
+.lesson-chat-form button {
+  border-color: #d8e5e6;
+  color: #fff;
+  background-color: #557f89;
+}
+
+.lesson-chat-toggle-mark {
+  border-color: rgba(255, 255, 255, .48);
+  color: #fff;
+  background-color: #426d77;
+}
+
+.lesson-chat-prompt,
+.lesson-chat-panel {
+  border-color: #dce5e9;
+  color: #263445;
+  background-color: #fff;
+  box-shadow: 0 16px 42px rgba(35, 57, 78, .16);
+}
+
+.lesson-chat-header,
+.lesson-chat-suggestions button,
+.lesson-chat-close {
+  border-color: #e4e9ef;
+  color: #405d68;
+  background-color: #f7f9fa;
+}
+
+.lesson-chat-header h2 {
+  color: #263445;
+}
+
+.lesson-chat-header p,
+.lesson-chat-online,
+.lesson-chat-message,
+.lesson-chat-suggestions button {
+  color: #526174;
+}
+
+.lesson-chat-message {
+  border-color: #e2e8ef;
+  background-color: #f5f7fa;
+}
+
+.lesson-chat-message.is-user {
+  border-color: #557f89;
+  color: #fff;
+  background-color: #557f89;
+}
+
+@media (max-width: 580px) {
+  .main-nav.open {
+    background-color: #fff;
+  }
+}
+
+.topbar .brand,
+.footer-brand {
+  padding: 5px 9px;
+  border-radius: 9px;
+  background-color: #31525c;
+}
+
+.eyebrow {
+  font-size: 10px;
+}
+
+.panel-title,
+.exam-field,
+.lesson-chat-message,
+.lesson-chat-form input {
+  font-size: 12px;
+}
+
+.input-hint,
+.privacy-note,
+.exam-field small,
+.exam-privacy,
+.footer {
+  font-size: 10px;
+}
+
+button:focus-visible,
+a:focus-visible,
+textarea:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline-color: #557f89;
+}

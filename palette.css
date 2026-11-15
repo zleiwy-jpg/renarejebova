@@ -1,0 +1,961 @@
+:root {
+  color-scheme: dark;
+  --black: #1A1A1A;
+  --orange: #FF9800;
+  --orange-light: #FFB74D;
+  --gray: #424242;
+  --yellow: #FFD54F;
+  --cream: #F4EEE4;
+  --text-muted: #B9AE9D;
+  --bg: var(--black);
+  --surface: var(--gray);
+  --line: rgba(255, 152, 0, .24);
+  --text: var(--cream);
+  --muted: var(--text-muted);
+  --blue: var(--orange);
+  --purple: var(--yellow);
+}
+
+html,
+body {
+  color: var(--cream);
+  background-color: var(--black);
+}
+
+body {
+  background-image:
+    radial-gradient(ellipse at 82% 10%, rgba(255, 152, 0, .12), transparent 34%),
+    linear-gradient(180deg, var(--black), var(--black));
+}
+
+::selection {
+  color: var(--black);
+  background-color: var(--orange-light);
+}
+
+.page-glow {
+  display: block;
+  background-color: var(--orange);
+  opacity: .08;
+}
+
+.page-glow-two {
+  background-color: var(--yellow);
+  opacity: .045;
+}
+
+.topbar {
+  border-color: rgba(255, 152, 0, .2);
+}
+
+.topbar .brand,
+.footer-brand {
+  padding: 5px 9px;
+  border-radius: 9px;
+  background-color: var(--black);
+}
+
+.brand-logo {
+  filter: sepia(.35) saturate(1.35);
+}
+
+.main-nav .nav-link,
+.topbar .main-nav .nav-link,
+.top-action,
+.exam-home-link {
+  border-color: rgba(255, 152, 0, .24);
+  color: var(--orange-light);
+  background-color: transparent;
+}
+
+.main-nav .nav-link:hover,
+.main-nav .nav-link.active,
+.topbar .main-nav .nav-link:hover,
+.top-action:hover,
+.exam-home-link:hover {
+  border-color: var(--orange);
+  color: var(--yellow);
+  background-color: rgba(255, 152, 0, .12);
+}
+
+.main-nav .nav-button-exam,
+.main-nav .nav-button-exam:hover,
+.hero-cta,
+.solve-button,
+.about-cta,
+.login-submit,
+.exam-primary,
+.finish-exam.is-confirming {
+  border-color: var(--orange);
+  color: var(--black);
+  background-color: var(--orange);
+  box-shadow: 0 8px 26px rgba(255, 152, 0, .18);
+}
+
+.main-nav .nav-button-exam:hover,
+.hero-cta:hover,
+.solve-button:hover,
+.exam-primary:hover:not(:disabled),
+.login-submit:hover {
+  border-color: var(--orange-light);
+  color: var(--black);
+  background-color: var(--orange-light);
+  box-shadow: 0 10px 28px rgba(255, 152, 0, .24);
+}
+
+.hero h1,
+.section-heading h2,
+.how-heading h2,
+.about-copy h2,
+.about-stats-heading h2,
+.exam-intro h1,
+.exam-card-heading h2,
+.question-title,
+.exam-result h2,
+.panel-title,
+.how-card h3,
+.about-journey h3 {
+  color: var(--orange-light);
+}
+
+.hero h1 span,
+.about-copy h2 span,
+.about-stats-heading h2 span,
+.exam-intro h1 span,
+.how-heading h2 span {
+  color: var(--orange);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+}
+
+.eyebrow,
+.hero-lede,
+.hero-note,
+.about-copy > p,
+.about-milestone p,
+.about-stat p,
+.how-card p,
+.exam-intro > p,
+.exam-card-heading > p,
+.input-hint,
+.privacy-note,
+.graph-caption,
+.empty-state p,
+.solution-step,
+.footer,
+.exam-privacy,
+.quiz-count,
+.answered-count,
+.skip-hint,
+.result-greeting,
+.result-phone,
+.review-prompt,
+.review-answer,
+.exam-bottom-note {
+  color: var(--orange-light);
+}
+
+.eyebrow-dot,
+.art-label i,
+.ready-badge i,
+.graph-dot {
+  background-color: var(--orange);
+  box-shadow: 0 0 10px rgba(255, 152, 0, .35);
+}
+
+.art-orbit,
+.orbit-b {
+  border-color: rgba(255, 152, 0, .22);
+}
+
+.art-card,
+.input-panel,
+.result-panel,
+.how-card,
+.word-visual,
+.word-explanation-panel,
+.about-stat,
+.login-screen,
+.dashboard-screen,
+.summary-card,
+.schedule-card,
+.exam-card,
+.exam-facts span,
+.exam-field input,
+.exam-field select,
+.student-level-display,
+.question-option,
+.result-breakdown > div,
+.review-item {
+  border-color: rgba(255, 152, 0, .2);
+  color: var(--orange-light);
+  background-color: var(--gray);
+  background-image: linear-gradient(145deg, rgba(66, 66, 66, .96), rgba(26, 26, 26, .96));
+  box-shadow: 0 14px 36px rgba(26, 26, 26, .55), inset 0 1px rgba(255, 183, 77, .08);
+}
+
+.art-card {
+  border-color: rgba(255, 152, 0, .4);
+  box-shadow: 0 20px 55px rgba(26, 26, 26, .72), 0 0 30px rgba(255, 152, 0, .08);
+}
+
+.art-card-foot,
+.result-topline,
+.graph-footer,
+.how-section,
+.footer,
+.solve-row,
+.quiz-footer,
+.result-review {
+  border-color: rgba(255, 152, 0, .18);
+}
+
+.art-label,
+.art-card-foot,
+.art-dots,
+.card-number,
+.examples-label,
+.examples-label.second,
+.mini-label,
+.answer-box > span,
+.exam-field,
+.exam-field small,
+.timer-copy small,
+.quiz-count,
+.question-state,
+.result-breakdown span {
+  color: var(--orange-light);
+}
+
+.floating-math,
+.example-chip,
+.mode-tabs,
+.mode-tab.selected,
+.student-level-display,
+.question-topic,
+.exam-secondary,
+.option-key,
+.result-symbol {
+  border-color: rgba(255, 152, 0, .27);
+  color: var(--orange-light);
+  background-color: var(--black);
+  box-shadow: none;
+}
+
+.floating-math {
+  border-color: rgba(255, 152, 0, .35);
+  color: var(--yellow);
+  background-color: var(--black);
+  box-shadow: 0 8px 24px rgba(26, 26, 26, .65);
+}
+
+.mode-tab {
+  color: var(--orange-light);
+}
+
+.mode-tab.selected {
+  border-color: var(--orange);
+  color: var(--black);
+  background-color: var(--orange);
+}
+
+.mode-tab:hover {
+  color: var(--yellow);
+}
+
+#problem-input,
+.exam-field input,
+.exam-field select,
+.lesson-chat-form input,
+.access-code-input {
+  border-color: rgba(255, 152, 0, .3);
+  color: var(--orange-light);
+  background-color: var(--black);
+  caret-color: var(--orange);
+}
+
+#problem-input::placeholder,
+.exam-field input::placeholder,
+.lesson-chat-form input::placeholder,
+.access-code-input::placeholder {
+  color: var(--orange-light);
+  opacity: .72;
+}
+
+#problem-input:focus,
+.exam-field input:focus,
+.exam-field select:focus,
+.lesson-chat-form input:focus,
+.access-code-input:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 3px rgba(255, 152, 0, .16);
+}
+
+.exam-field select {
+  appearance: none;
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--orange-light) 50%),
+    linear-gradient(135deg, var(--orange-light) 50%, transparent 50%);
+  background-position: calc(100% - 17px) 19px, calc(100% - 12px) 19px;
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.exam-field select option {
+  color: var(--orange-light);
+  background-color: var(--black);
+}
+
+.drawing-canvas,
+.upload-zone,
+.image-preview,
+.word-stage,
+.dashboard-dialog,
+.dashboard-screen {
+  border-color: rgba(255, 152, 0, .28);
+  color: var(--orange-light);
+  background-color: var(--black);
+}
+
+.upload-zone:hover,
+.upload-zone.dragover,
+.example-chip:hover,
+.exam-secondary:hover:not(:disabled) {
+  border-color: var(--orange);
+  color: var(--yellow);
+  background-color: rgba(255, 152, 0, .12);
+}
+
+.upload-zone strong,
+.upload-zone u,
+.clear-canvas,
+.recognize-button,
+.step-counter,
+.exam-facts i,
+.student-level-display,
+.question-topic,
+.option-check,
+.exam-bottom-note span {
+  color: var(--orange-light);
+}
+
+.recognize-button {
+  border-color: rgba(255, 152, 0, .35);
+  background-color: var(--black);
+}
+
+.inline-error,
+.exam-error {
+  border-color: rgba(255, 183, 77, .4);
+  color: var(--yellow);
+  background-color: var(--black);
+}
+
+.result-icon,
+.note-stars,
+.legend-dot,
+.math-two,
+.result-pill,
+.result-pill *,
+.art-spark,
+.how-icon,
+.how-icon.purple,
+.how-icon.mint,
+.empty-illustration,
+.empty-illustration i,
+.empty-illustration b,
+.result-score-ring,
+.stat-ring,
+.about-stat:nth-child(n) .stat-ring,
+.about-stat:nth-child(n) .stat-value strong {
+  color: var(--orange);
+}
+
+.result-pill,
+.art-card-foot .result-pill {
+  border-color: rgba(255, 152, 0, .5);
+  color: var(--yellow);
+  background-color: var(--black);
+}
+
+.how-icon,
+.how-icon.purple,
+.how-icon.mint,
+.empty-illustration > span,
+.result-symbol {
+  border-color: rgba(255, 152, 0, .35);
+  color: var(--orange);
+  background-color: var(--black);
+}
+
+.solution-problem,
+.word-visual,
+.word-stage {
+  border-color: rgba(255, 152, 0, .3);
+  border-left-color: var(--orange);
+  color: var(--orange-light);
+  background-color: var(--black);
+}
+
+.word-visual-title,
+.word-group-label,
+.word-visual-equation,
+.solution-problem strong,
+.solution-step strong,
+.answer-box strong {
+  color: var(--orange-light);
+}
+
+.solution-step b {
+  color: var(--black);
+  background-color: var(--orange);
+}
+
+.answer-box {
+  border-color: rgba(255, 152, 0, .45);
+  background-color: var(--black);
+}
+
+.answer-box > span,
+.answer-box strong {
+  color: var(--yellow);
+}
+
+.about-quote {
+  border-color: rgba(255, 152, 0, .28);
+  border-left-color: var(--orange);
+  color: var(--orange-light);
+  background-color: var(--gray);
+}
+
+.about-quote::before,
+.about-quote strong,
+.about-year {
+  color: var(--yellow);
+}
+
+.about-photo-wrap::before,
+.about-photo-frame::after,
+.about-milestone::before {
+  border-color: rgba(255, 152, 0, .35);
+  background-color: var(--orange);
+}
+
+.about-photo-frame {
+  border-color: rgba(255, 152, 0, .3);
+  background-color: var(--gray);
+  box-shadow: 0 20px 55px rgba(26, 26, 26, .7);
+}
+
+.about-year {
+  border-color: rgba(255, 152, 0, .36);
+  background-color: var(--black);
+}
+
+.about-milestone:nth-child(2) .about-year {
+  border-color: rgba(255, 183, 77, .36);
+  color: var(--orange-light);
+  background-color: var(--black);
+}
+
+.quiz-timer {
+  border-color: rgba(255, 152, 0, .36);
+  color: var(--orange-light);
+  background-color: var(--black);
+  box-shadow: none;
+}
+
+.timer-dial,
+.timer-value,
+.quiz-count strong {
+  color: var(--yellow);
+}
+
+.timer-ring-track,
+.result-score-track {
+  stroke: rgba(255, 183, 77, .22);
+}
+
+.timer-ring-progress,
+.result-score-progress {
+  stroke: var(--orange);
+  filter: drop-shadow(0 0 4px rgba(255, 152, 0, .3));
+}
+
+.quiz-timer.is-urgent {
+  border-color: var(--yellow);
+  background-color: rgba(255, 152, 0, .12);
+  box-shadow: none;
+  animation: none;
+}
+
+.quiz-timer.is-urgent .timer-dial,
+.quiz-timer.is-urgent .timer-value,
+.quiz-timer.is-urgent .timer-ring-progress {
+  color: var(--yellow);
+  stroke: var(--yellow);
+}
+
+.quiz-progress {
+  background-color: var(--gray);
+}
+
+.quiz-progress span {
+  background-color: var(--orange);
+}
+
+.question-option {
+  border-color: rgba(255, 152, 0, .24);
+  color: var(--orange-light);
+  background-color: var(--gray);
+}
+
+.question-option:hover,
+.question-option:focus-within {
+  border-color: var(--orange);
+  background-color: rgba(255, 152, 0, .12);
+}
+
+.option-key {
+  border-color: rgba(255, 152, 0, .3);
+  color: var(--orange-light);
+  background-color: var(--black);
+}
+
+.question-option input:checked ~ .option-key {
+  border-color: var(--orange);
+  color: var(--black);
+  background-color: var(--orange);
+}
+
+.question-option input:checked ~ .option-check {
+  color: var(--yellow);
+}
+
+.result-score-value strong,
+.result-breakdown strong,
+.review-item-heading strong,
+.review-answer strong {
+  color: var(--orange-light);
+}
+
+.review-result.is-correct,
+.review-result.is-wrong,
+.review-result.is-blank {
+  color: var(--orange-light);
+}
+
+.review-result.is-correct {
+  color: var(--yellow);
+}
+
+.review-result.is-wrong {
+  color: var(--orange);
+}
+
+.menu-toggle,
+.main-nav.open {
+  border-color: rgba(255, 152, 0, .3);
+  background-color: var(--black);
+}
+
+.menu-toggle span {
+  background-color: var(--orange-light);
+}
+
+.lesson-chat-toggle,
+.lesson-chat-form button {
+  border-color: var(--orange);
+  color: var(--black);
+  background-color: var(--orange);
+}
+
+.lesson-chat-toggle:hover,
+.lesson-chat-form button:hover {
+  background-color: var(--orange-light);
+}
+
+.lesson-chat-toggle-mark {
+  border-color: rgba(255, 183, 77, .5);
+  color: var(--yellow);
+  background-color: var(--black);
+}
+
+.lesson-chat-toggle::after {
+  border-color: var(--black);
+  background-color: var(--yellow);
+}
+
+.lesson-chat-prompt,
+.lesson-chat-panel {
+  border-color: rgba(255, 152, 0, .35);
+  color: var(--orange-light);
+  background-color: var(--black);
+  box-shadow: 0 18px 48px rgba(26, 26, 26, .8);
+}
+
+.lesson-chat-prompt::after,
+.lesson-chat-header,
+.lesson-chat-suggestions button,
+.lesson-chat-close,
+.lesson-chat-form {
+  border-color: rgba(255, 152, 0, .25);
+  color: var(--orange-light);
+  background-color: var(--gray);
+}
+
+.lesson-chat-header h2,
+.lesson-chat-header p,
+.lesson-chat-online,
+.lesson-chat-message,
+.lesson-chat-suggestions button {
+  color: var(--orange-light);
+}
+
+.lesson-chat-avatar {
+  border-color: rgba(255, 152, 0, .4);
+  color: var(--yellow);
+  background-color: var(--black);
+}
+
+.lesson-chat-close:hover,
+.lesson-chat-suggestions button:hover {
+  border-color: var(--orange);
+  color: var(--yellow);
+  background-color: var(--black);
+}
+
+.lesson-chat-message {
+  border-color: rgba(255, 152, 0, .2);
+  background-color: var(--gray);
+}
+
+.lesson-chat-message.is-user {
+  border-color: var(--orange);
+  color: var(--black);
+  background-color: var(--orange);
+}
+
+.lesson-chat-contact {
+  border-color: var(--orange);
+  color: var(--black);
+  background-color: var(--orange);
+  box-shadow: none;
+}
+
+.lesson-chat-contact:hover {
+  background-color: var(--orange-light);
+  box-shadow: none;
+}
+
+.lesson-chat-contact-arrow {
+  color: var(--black);
+}
+
+.lesson-chat-typing span {
+  background-color: var(--orange-light);
+}
+
+.page-loader {
+  color: var(--orange-light);
+  background-color: var(--black);
+  background-image: radial-gradient(ellipse at center, rgba(255, 152, 0, .12), var(--black) 68%);
+}
+
+.loader-orbit,
+.loader-orbit-two {
+  border-color: rgba(255, 152, 0, .3);
+}
+
+.loader-axis {
+  stroke: rgba(255, 183, 77, .3);
+}
+
+.loader-parabola,
+.loader-symbol-root {
+  stroke: var(--orange);
+  color: var(--orange);
+}
+
+.loader-point,
+.loader-symbol,
+.loader-caption::before,
+.loader-caption strong::after {
+  fill: var(--yellow);
+  color: var(--yellow);
+  background-color: var(--yellow);
+}
+
+.loader-symbol-sigma,
+.loader-equation,
+.loader-caption {
+  color: var(--orange-light);
+}
+
+.loader-caption strong {
+  color: var(--orange-light);
+  text-shadow: none;
+}
+
+.loader-graph-glow {
+  filter: none;
+}
+
+.dashboard-dialog::backdrop {
+  background-color: rgba(26, 26, 26, .88);
+}
+
+.dashboard-dialog,
+.dashboard-dialog .login-screen,
+.dashboard-dialog .dashboard-screen,
+.dashboard-dialog .schedule-card,
+.dashboard-dialog .summary-card {
+  border-color: rgba(255, 152, 0, .25);
+  color: var(--orange-light);
+  background-color: var(--black);
+}
+
+.dashboard-dialog h1,
+.dashboard-dialog h2,
+.dashboard-dialog h3,
+.dashboard-dialog label,
+.dashboard-dialog strong {
+  color: var(--orange-light);
+}
+
+.dashboard-dialog input,
+.dashboard-dialog select,
+.dashboard-dialog textarea {
+  border-color: rgba(255, 152, 0, .3);
+  color: var(--orange-light);
+  background-color: var(--gray);
+}
+
+button:focus-visible,
+a:focus-visible,
+textarea:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+@media (max-width: 580px) {
+  .main-nav.open {
+    background-color: var(--black);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quiz-timer.is-urgent {
+    animation: none;
+  }
+}
+
+body * {
+  border-color: rgba(255, 183, 77, .16) !important;
+  outline-color: var(--orange) !important;
+  background-image: none !important;
+}
+
+.hero h1,
+.hero h1 span,
+.section-heading h2,
+.how-heading h2,
+.how-heading h2 span,
+.about-copy h2,
+.about-copy h2 span,
+.about-stats-heading h2,
+.about-stats-heading h2 span,
+.exam-intro h1,
+.exam-intro h1 span,
+.exam-card-heading h2,
+.question-title,
+.exam-result h2,
+.lesson-chat-toggle-mark {
+  color: var(--cream) !important;
+}
+
+.main-nav .nav-button-exam,
+.main-nav .nav-button-exam:hover,
+.topbar .main-nav .nav-button-exam,
+.topbar .main-nav .nav-button-exam:hover,
+.hero-cta,
+.hero-cta:hover,
+.solve-button,
+.solve-button:hover,
+.about-cta,
+.about-cta:hover,
+.login-submit,
+.exam-primary,
+.exam-primary:hover:not(:disabled),
+.finish-exam.is-confirming,
+.lesson-chat-toggle,
+.lesson-chat-form button,
+.lesson-chat-message.is-user,
+.lesson-chat-contact {
+  color: var(--black) !important;
+  background-color: var(--orange) !important;
+  background-image: none !important;
+}
+
+.hero-cta:hover,
+.solve-button:hover,
+.exam-primary:hover:not(:disabled),
+.lesson-chat-contact:hover,
+.lesson-chat-form button:hover {
+  background-color: var(--orange-light) !important;
+}
+
+.topbar .main-nav .nav-link,
+.topbar .main-nav .nav-link:hover,
+.top-action,
+.exam-home-link,
+.mode-tab.selected,
+.question-option input:checked ~ .option-key {
+  background-color: var(--black) !important;
+  background-image: none !important;
+}
+
+.mode-tab.selected,
+.question-option input:checked ~ .option-key {
+  color: var(--black) !important;
+  background-color: var(--orange) !important;
+}
+
+.art-card,
+.input-panel,
+.result-panel,
+.how-card,
+.about-stat,
+.exam-card,
+.exam-facts span,
+.exam-field input,
+.exam-field select,
+.student-level-display,
+.question-option,
+.result-breakdown > div,
+.review-item {
+  background-color: var(--gray) !important;
+  background-image: linear-gradient(145deg, rgba(66, 66, 66, .96), rgba(26, 26, 26, .96)) !important;
+}
+
+.art-orbit,
+.orbit-b,
+.empty-orbit {
+  border-color: rgba(255, 152, 0, .24) !important;
+}
+
+.legend-dot,
+.eyebrow-dot,
+.art-label i,
+.ready-badge i,
+.graph-dot {
+  background-color: var(--orange) !important;
+}
+
+.step-counter span,
+.input-hint span,
+.draw-toolbar,
+.draw-toolbar span,
+.upload-sub,
+.result-topline,
+.result-topline > div,
+.ready-badge,
+.graph-footer,
+.graph-footer span,
+.empty-state h3,
+.about-intro,
+.about-experience,
+.stat-value span,
+.about-stat h3 {
+  color: var(--orange-light) !important;
+}
+
+.empty-line {
+  background-color: rgba(255, 183, 77, .12) !important;
+}
+
+.remove-image {
+  color: var(--yellow) !important;
+  border-color: var(--orange) !important;
+  background-color: var(--black) !important;
+}
+
+.about-stat .stat-ring-track {
+  stroke: rgba(255, 183, 77, .2) !important;
+}
+
+.about-stat .stat-ring-progress,
+.hero-graph * {
+  stroke: var(--orange) !important;
+}
+
+.hero-graph circle {
+  fill: var(--yellow) !important;
+}
+
+.footer-socials a {
+  color: var(--orange-light) !important;
+  border-color: var(--orange) !important;
+  background-color: var(--gray) !important;
+}
+
+.lesson-chat-messages {
+  background-color: var(--black) !important;
+}
+
+.lesson-chat-prompt,
+.lesson-chat-panel,
+.lesson-chat-header,
+.lesson-chat-close,
+.lesson-chat-suggestions button,
+.lesson-chat-message {
+  color: var(--orange-light) !important;
+}
+
+.lesson-chat-online span {
+  background-color: var(--yellow) !important;
+}
+
+.eyebrow,
+.hero-lede,
+.hero-note,
+.mix-lead,
+.about-copy > p,
+.about-milestone p,
+.about-stat p,
+.how-card p,
+.exam-intro > p,
+.exam-card-heading > p,
+.input-hint,
+.privacy-note,
+.graph-caption,
+.empty-state p,
+.solution-step,
+.footer,
+.exam-privacy,
+.quiz-count,
+.answered-count,
+.skip-hint,
+.result-greeting,
+.result-phone,
+.review-prompt,
+.review-answer,
+.exam-bottom-note {
+  color: var(--text-muted) !important;
+}
+
+.hero h1,
+.section-heading h2,
+.how-heading h2,
+.about-copy h2,
+.about-stats-heading h2,
+.exam-intro h1,
+.exam-card-heading h2,
+.question-title,
+.exam-result h2,
+.panel-title,
+.how-card h3 {
+  color: var(--cream) !important;
+}
