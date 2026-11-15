@@ -73,6 +73,37 @@ if (menuToggle && mainNav) {
 
   mainNav.replaceChildren(navList);
 
+  // Desktop left menu panel built from the same navigation items.
+  const sidePanel = document.createElement("aside");
+  sidePanel.className = "side-panel";
+  sidePanel.setAttribute("aria-label", "Əsas menyu paneli");
+
+  const sidePanelHead = document.createElement("div");
+  sidePanelHead.className = "side-panel-head";
+  sidePanelHead.innerHTML = '<span class="side-panel-heading">MENYU</span>';
+
+  const sidePanelList = document.createElement("ul");
+  sidePanelList.className = "side-panel-list";
+
+  navList.querySelectorAll("li").forEach(item => {
+    const source = item.querySelector("a.nav-link");
+    if (!source) return;
+
+    const sideItem = document.createElement("li");
+    if (item.classList.contains("active")) sideItem.classList.add("active");
+    sideItem.style.setProperty("--clr", item.style.getPropertyValue("--clr"));
+
+    const link = source.cloneNode(true);
+    link.className = "side-panel-link";
+    if (source.getAttribute("aria-current")) link.setAttribute("aria-current", "page");
+    sideItem.append(link);
+    sidePanelList.append(sideItem);
+  });
+
+  sidePanel.append(sidePanelHead, sidePanelList);
+  document.body.prepend(sidePanel);
+  document.documentElement.classList.add("has-side-panel");
+
   function closeMenu() {
     menuToggle.setAttribute("aria-expanded", "false");
     mainNav.classList.remove("open");
