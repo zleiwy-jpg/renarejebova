@@ -18,7 +18,7 @@ Yazılı söz məsələlərini təhlil etmək üçün Google Gemini API açarı 
    $keyPointer = [Runtime.InteropServices.Marshal]::SecureStringToBSTR($secureKey)
    try {
      $env:GOOGLE_API_KEY = [Runtime.InteropServices.Marshal]::PtrToStringBSTR($keyPointer)
-     .\serve.ps1 -Port 8001
+     .\scripts\serve.ps1 -Port 8001
    } finally {
      [Runtime.InteropServices.Marshal]::ZeroFreeBSTR($keyPointer)
      Remove-Item Env:GOOGLE_API_KEY -ErrorAction SilentlyContinue

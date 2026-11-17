@@ -3,21 +3,22 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-$root = [System.IO.Path]::GetFullPath($PSScriptRoot)
+$root = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot ".."))
 $prefix = "http://127.0.0.1:$Port/"
+$redirects = @{
+  "/index.html" = "/"
+  "/admin" = "/admin/"
+  "/admin/index.html" = "/admin/"
+  "/hell-et" = "/pages/hell-et.html"
+  "/movzular" = "/pages/movzular.html"
+  "/oyunlar" = "/pages/oyunlar.html"
+  "/sinaq" = "/pages/sinaq.html"
+  "/haqqimda" = "/pages/haqqimda.html"
+  "/elaqe" = "/pages/elaqe.html"
+}
 $pageRoutes = @{
-  "/hell-et" = "/hell-et.html"
-  "/movzular" = "/movzular.html"
-  "/oyunlar" = "/oyunlar.html"
-  "/sinaq" = "/sinaq.html"
-  "/haqqimda" = "/haqqimda.html"
-  "/elaqe" = "/elaqe.html"
+  "/admin/" = "/admin/index.html"
 }
-$canonicalPageRoutes = @{}
-foreach ($pageRoute in $pageRoutes.GetEnumerator()) {
-  $canonicalPageRoutes[$pageRoute.Value] = $pageRoute.Key
-}
-$canonicalPageRoutes["/index.html"] = "/"
 $apiKey = $env:GOOGLE_API_KEY
 $model = "gemini-3.5-flash-lite"
 $listener = [System.Net.HttpListener]::new()
@@ -63,7 +64,7 @@ function Get-StaticContentType([string]$extension) {
 try {
   $listener.Start()
 } catch {
-  throw "Could not start the local server at $prefix. Choose another port with .\serve.ps1 -Port 8001. $($_.Exception.Message)"
+  throw "Could not start the local server at $prefix. Choose another port with .\scripts\serve.ps1 -Port 8001. $($_.Exception.Message)"
 }
 
 Write-Output "Serving $root at $prefix"
@@ -81,7 +82,7 @@ try {
     if ($request.HttpMethod -eq "POST" -and $path -eq "/api/analyze") {
       try {
         if (-not $apiKey) {
-          Write-Json $response 503 @{ error = "The analysis service is not configured. Set the GOOGLE_API_KEY environment variable and restart serve.ps1." }
+          Write-Json $response 503 @{ error = "The analysis service is not configured. Set the GOOGLE_API_KEY environment variable and restart scripts/serve.ps1." }
           continue
         }
         if ($request.ContentLength64 -gt 12000) {
@@ -272,9 +273,9 @@ $problem
       continue
     }
 
-    if ($request.HttpMethod -eq "GET" -and $canonicalPageRoutes.ContainsKey($path)) {
+    if ($request.HttpMethod -eq "GET" -and $redirects.ContainsKey($path)) {
       $response.StatusCode = 302
-      $response.RedirectLocation = $canonicalPageRoutes[$path] + $request.Url.Query
+      $response.RedirectLocation = $redirects[$path] + $request.Url.Query
       $response.Close()
       continue
     }

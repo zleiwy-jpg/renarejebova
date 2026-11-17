@@ -465,6 +465,22 @@ function finishExam(expired = false) {
   const incorrect = questionCount - correct - unanswered;
   const score = correct * 5;
 
+  if (window.RenaData && typeof window.RenaData.addExam === "function") {
+    const remainingSeconds = Math.max(0, Math.ceil((examDeadline - Date.now()) / 1000));
+    window.RenaData.addExam({
+      name: attempt.name,
+      phone: attempt.phone,
+      level: attempt.level,
+      score,
+      correct,
+      wrong: incorrect,
+      blank: unanswered,
+      total: questionCount,
+      durationSeconds: Math.max(0, examDurationSeconds - remainingSeconds),
+      expired
+    });
+  }
+
   const symbol = document.createElement("div");
   symbol.className = "result-symbol";
   symbol.setAttribute("aria-hidden", "true");
