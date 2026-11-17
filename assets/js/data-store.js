@@ -5,6 +5,16 @@
   const SESSION_KEY = "rena.admin.session.v1";
   const listeners = new Set();
 
+  let hasLocalChanges = false;
+  let remoteLoaded = false;
+
+  const REMOTE = {
+    owner: "zleiwy-jpg",
+    repo: "renarejebova",
+    branch: "main",
+    path: "data/db.json"
+  };
+
   function uid(prefix) {
     return `${prefix}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 8)}`;
   }
@@ -240,6 +250,7 @@
   }
 
   function write(database) {
+    hasLocalChanges = true;
     global.localStorage.setItem(DB_KEY, JSON.stringify(database));
     emit();
     return database;
@@ -249,6 +260,72 @@
     const database = read();
     mutator(database);
     return write(database);
+  }
+
+  async function loadRemoteDatabase() {
+    if (remoteLoaded) return;
+    try {
+      const url = `https://api.github.com/repos/${REMOTE.owner}/${REMOTE.repo}/contents/${REMOTE.path}?ref=${encodeURIComponent(REMOTE.branch)}`;
+      const response = await fetch(url, {
+        cache: "no-store",
+        headers: { Accept: "application/vnd.github.raw" }
+      });
+      if (response.ok) {
+        const data = await response.json();
+        applyRemoteDatabase(data);
+      } else if (response.status === 404) {
+        // No remote file yet, that's fine
+      }
+    } catch (error) {
+      // Network or rate limit, ignore
+    } finally {
+      remoteLoaded = true;
+    }
+  }
+
+  function applyRemoteDatabase(data) {
+    if (hasLocalChanges) return;
+    const normalized = normalizeDatabase(data);
+    global.localStorage.setItem(DB_KEY, JSON.stringify(normalized));
+    emit();
+  }
+
+  async function pushRemote() {
+    const token = global.localStorage.getItem("rena.github.token");
+    if (!token) throw new Error("GitHub token tapılmadı. Admin paneldə konfiqurasiya edin.");
+    const database = read();
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(database, null, 2))));
+    const apiUrl = `https://api.github.com/repos/${REMOTE.owner}/${REMOTE.repo}/contents/${REMOTE.path}`;
+    let sha = null;
+    const getRes = await fetch(`${apiUrl}?ref=${encodeURIComponent(REMOTE.branch)}`, {
+      headers: { Authorization: `token ${token}`, Accept: "application/vnd.github+json" }
+    });
+    if (getRes.ok) {
+      const info = await getRes.json();
+      sha = info.sha;
+    } else if (getRes.status !== 404) {
+      const err = await getRes.json();
+      throw new Error(err.message || "Mövcud fayl məlumatları alınmadı");
+    }
+    const putRes = await fetch(apiUrl, {
+      method: "PUT",
+      headers: {
+        Authorization: `token ${token}`,
+        Accept: "application/vnd.github+json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        message: "Admin: məlumatlar yeniləndi",
+        content,
+        branch: REMOTE.branch,
+        ...(sha ? { sha } : {})
+      })
+    });
+    if (!putRes.ok) {
+      const err = await putRes.json();
+      throw new Error(err.message || "GitHub-a yazılarkən xəta");
+    }
+    hasLocalChanges = false;
   }
 
   function sortByDate(items) {
@@ -392,9 +469,10 @@
 
   function reset() {
     return write(createSeed());
-  }
-
-  global.RenaData = {
+}
+  
+  loadRemoteDatabase();
+global.RenaData = {
     DB_KEY,
     SESSION_KEY,
     hashPassword,
@@ -427,6 +505,9 @@
     saveSettings,
     getRanking,
     verifyPassword,
-    setPassword
+    setPassword,
+    pushRemote,
+    loadRemoteDatabase,
+    REMOTE
   };
 })(window);

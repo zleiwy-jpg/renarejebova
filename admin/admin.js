@@ -513,6 +513,7 @@
 
     $("rankingBody").replaceChildren(...filtered.map(student => {
       const position = ranking.findIndex(item => item.id === student.id) + 1;
+      const fullStudent = database.students.find(item => item.id === student.id) || student;
       return el(
         "tr",
         {},
@@ -520,7 +521,8 @@
         el("td", {}, personCell(student.name, student.grade ? `${student.grade} sinif` : "Şagird")),
         el("td", { class: "cell-muted", text: student.grade || "—" }),
         el("td", { class: "num cell-strong", text: formatNumber(student.answers) }),
-        el("td", {}, progressBar(student.rating))
+        el("td", {}, progressBar(student.rating)),
+        el("td", { class: "actions-col" }, iconButton(icons.edit, "Reytinqi dəyiş", () => openStudentModal(fullStudent)))
       );
     }));
 
@@ -1039,7 +1041,82 @@
     });
   }
 
+  function initGitHubSync() {
+    const tokenKey = "rena.github.token";
+    const autoKey = "rena.github.autoSync";
+    const tokenInput = $("githubTokenInput");
+    const repoInput = $("githubRepoInput");
+    const branchInput = $("githubBranchInput");
+    const pathInput = $("githubPathInput");
+    const autoCheckbox = $("githubAutoSyncInput");
+    const pushBtn = $("githubPushBtn");
+    const statusEl = $("githubSyncStatus");
+
+    // Prefill repo info from store.REMOTE
+    if (store.REMOTE) {
+      repoInput.value = `${store.REMOTE.owner}/${store.REMOTE.repo}`;
+      branchInput.value = store.REMOTE.branch;
+      pathInput.value = store.REMOTE.path;
+    }
+
+    // Load saved token and auto-sync
+    const savedToken = localStorage.getItem(tokenKey);
+    if (savedToken) tokenInput.value = savedToken;
+    const autoSync = localStorage.getItem(autoKey) === "true";
+    autoCheckbox.checked = autoSync;
+
+    // Save token on input
+    tokenInput.addEventListener("input", () => {
+      localStorage.setItem(tokenKey, tokenInput.value);
+    });
+
+    // Save auto-sync preference
+    autoCheckbox.addEventListener("change", () => {
+      localStorage.setItem(autoKey, autoCheckbox.checked);
+    });
+
+    // Manual push
+    pushBtn.addEventListener("click", async () => {
+      if (!tokenInput.value) {
+        statusEl.textContent = "Token daxil edin";
+        statusEl.className = "sync-status error";
+        return;
+      }
+      pushBtn.disabled = true;
+      statusEl.textContent = "Yüklənir...";
+      statusEl.className = "sync-status";
+      try {
+        await store.pushRemote();
+        statusEl.textContent = "GitHub-a yazıldı";
+        statusEl.className = "sync-status success";
+      } catch (err) {
+        statusEl.textContent = "Xəta: " + err.message;
+        statusEl.className = "sync-status error";
+      } finally {
+        pushBtn.disabled = false;
+      }
+    });
+
+    // Auto-sync on store changes (debounced)
+    let syncTimeout = null;
+    const unsubscribe = store.subscribe(() => {
+      if (!autoCheckbox.checked) return;
+      if (!tokenInput.value) return;
+      clearTimeout(syncTimeout);
+      syncTimeout = setTimeout(async () => {
+        try {
+          await store.pushRemote();
+          statusEl.textContent = "Avtomatik yazıldı";
+          statusEl.className = "sync-status success";
+        } catch (err) {
+          statusEl.textContent = "Avtomatik xəta: " + err.message;
+          statusEl.className = "sync-status error";
+        }
+      }, 1500);
+    });
+  }
   bindEvents();
+  initGitHubSync();
 
   let authed = false;
   try {

@@ -109,8 +109,8 @@ if (loginDialog && dashboardOpen && loginDialogClose && headerLoginForm && login
     });
     loginDialogTitle.textContent = isRegister ? "Yeni hesab yaradın" : "Hesaba daxil olun";
     loginDialogCopy.textContent = isRegister
-      ? "Qeydiyyat üçün məlumatlarınızı doldurun."
-      : "Davam etmək üçün giriş məlumatlarınızı qeyd edin.";
+      ? "Qeydiyyat üçün ad, e-poçt və şifrəni yazın."
+      : "Davam etmək üçün e-poçt və şifrənizi yazın.";
     loginDialogSubmitLabel.textContent = isRegister ? "Qeydiyyatdan keç" : "Daxil ol";
     loginUsernameLabel.textContent = isRegister ? "İstifadəçi adı" : "E-poçt və ya istifadəçi adı";
     loginPassword.autocomplete = isRegister ? "new-password" : "current-password";

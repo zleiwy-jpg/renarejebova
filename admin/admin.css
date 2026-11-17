@@ -238,27 +238,6 @@ svg {
   line-height: 1.6;
 }
 
-.login-hint {
-  margin-top: 16px;
-  padding: 10px 12px;
-  border: 1px dashed var(--border-strong);
-  border-radius: var(--radius-sm);
-  color: var(--muted);
-  background: var(--surface-2);
-  font-size: 11.5px;
-  text-align: center;
-}
-
-.login-hint b {
-  color: var(--text);
-  font-weight: 600;
-}
-
-.login-hint span {
-  margin: 0 4px;
-  color: var(--muted-2);
-}
-
 .login-back {
   display: inline-block;
   margin-top: 18px;
@@ -281,6 +260,14 @@ svg {
   color: #414856;
   font-size: 12px;
   font-weight: 600;
+}
+
+.field-hint {
+  display: block;
+  margin-top: 5px;
+  color: var(--muted);
+  font-size: 10.5px;
+  line-height: 1.4;
 }
 
 .field input,
@@ -2075,3 +2062,23 @@ svg {
     transition-duration: .01ms !important;
   }
 }
+/* GitHub sync form */
+.checkbox-field {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+.checkbox-field input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+}
+.sync-status {
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.sync-status.success { color: var(--success); }
+.sync-status.error { color: var(--danger); }

@@ -220,10 +220,27 @@
 }
 
 .rank-score {
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-end;
+  gap: 5px;
   color: var(--cream);
   font: 600 11px/1 var(--font);
   font-variant-numeric: tabular-nums;
   text-align: right;
+  white-space: nowrap;
+}
+
+.rank-percent {
+  color: var(--orange-light);
+  font-size: 9px;
+  font-weight: 600;
+}
+
+.rank-percent::before {
+  content: "·";
+  margin-right: 3px;
+  color: var(--text-muted);
 }
 
 .rank-row.is-leader .rank-score {

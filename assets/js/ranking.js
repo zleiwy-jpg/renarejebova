@@ -4,18 +4,18 @@
   if (document.querySelector(".rank-panel")) return;
 
   const fallbackStudents = [
-    { name: "Aysel Məmmədova", grade: "11-A", answers: 1284 },
-    { name: "Murad Əliyev", grade: "11-B", answers: 1197 },
-    { name: "Nərmin Həsənova", grade: "10-A", answers: 1103 },
-    { name: "Tural Quliyev", grade: "11-C", answers: 986 },
-    { name: "Leyla İsmayılova", grade: "10-B", answers: 924 },
-    { name: "Rəvan Babayev", grade: "9-A", answers: 861 },
-    { name: "Zəhra Abdullayeva", grade: "10-C", answers: 790 },
-    { name: "Elvin Rzayev", grade: "11-A", answers: 742 },
-    { name: "Aytac Cəfərova", grade: "9-B", answers: 688 },
-    { name: "Kamran Nəsibov", grade: "12-A", answers: 615 },
-    { name: "Səbinə Xəlilova", grade: "10-A", answers: 552 },
-    { name: "Fərid Musayev", grade: "9-C", answers: 498 }
+    { name: "Aysel Məmmədova", grade: "11-A", answers: 1284, rating: 98 },
+    { name: "Murad Əliyev", grade: "11-B", answers: 1197, rating: 95 },
+    { name: "Nərmin Həsənova", grade: "10-A", answers: 1103, rating: 92 },
+    { name: "Tural Quliyev", grade: "11-C", answers: 986, rating: 89 },
+    { name: "Leyla İsmayılova", grade: "10-B", answers: 924, rating: 86 },
+    { name: "Rəvan Babayev", grade: "9-A", answers: 861, rating: 82 },
+    { name: "Zəhra Abdullayeva", grade: "10-C", answers: 790, rating: 78 },
+    { name: "Elvin Rzayev", grade: "11-A", answers: 742, rating: 74 },
+    { name: "Aytac Cəfərova", grade: "9-B", answers: 688, rating: 70 },
+    { name: "Kamran Nəsibov", grade: "12-A", answers: 615, rating: 66 },
+    { name: "Səbinə Xəlilova", grade: "10-A", answers: 552, rating: 62 },
+    { name: "Fərid Musayev", grade: "9-C", answers: 498, rating: 58 }
   ];
 
   const store = window.RenaData || null;
@@ -65,7 +65,7 @@
       </button>
     </div>
     <p class="rank-note"></p>
-    <div class="rank-columns" aria-hidden="true"><span>#</span><span>Şagird</span><span>Cavab</span></div>
+    <div class="rank-columns" aria-hidden="true"><span>#</span><span>Şagird</span><span>Cavab · Faiz</span></div>
     <ol class="rank-list"></ol>
     <div class="rank-foot"><span class="rank-live">Həftəlik sıralama</span><span class="rank-total"></span></div>
   `;
@@ -117,7 +117,16 @@
 
       const score = document.createElement("span");
       score.className = "rank-score";
-      score.textContent = String(student.answers).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
+      const answerCount = document.createElement("span");
+      answerCount.className = "rank-answers";
+      answerCount.textContent = String(student.answers).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
+      const percent = document.createElement("span");
+      percent.className = "rank-percent";
+      percent.textContent = `${student.rating || 0}%`;
+
+      score.append(answerCount, percent);
 
       item.append(position, person, score);
       list.append(item);

@@ -20,7 +20,7 @@
           <div><strong>Rəna Rəcəbova.az</strong><small>Sayt idarəetmə sistemi</small></div>
         </div>
         <div class="login-aside-copy">
-          <h2>İdarəetmə paneli</h2>
+          <h2>Panelə xoş gəlmisiniz</h2>
           <p>Şagirdlər, reytinq, sınaq nəticələri və giriş müraciətləri bir yerdə.</p>
         </div>
         <ul class="login-features">
@@ -206,7 +206,7 @@
             <div class="table-wrap">
               <table class="data-table">
                 <thead>
-                  <tr><th>Şagird</th><th>Sinif</th><th>Əlaqə</th><th class="num">Cavab sayı</th><th>Reytinq</th><th>Status</th><th class="actions-col">Əməliyyat</th></tr>
+                  <tr><th>Şagird</th><th>Sinif</th><th>Əlaqə</th><th class="num">Cavab sayı</th><th>Reytinq faizi</th><th>Status</th><th class="actions-col">Əməliyyat</th></tr>
                 </thead>
                 <tbody id="studentsBody"></tbody>
               </table>
@@ -241,7 +241,7 @@
               </div>
               <div class="table-wrap">
                 <table class="data-table">
-                  <thead><tr><th class="rank-col">#</th><th>Şagird</th><th>Sinif</th><th class="num">Cavab</th><th>Reytinq</th></tr></thead>
+                  <thead><tr><th class="rank-col">#</th><th>Şagird</th><th>Sinif</th><th class="num">Cavab</th><th>Reytinq faizi</th><th class="actions-col">Əməliyyat</th></tr></thead>
                   <tbody id="rankingBody"></tbody>
                 </table>
               </div>
@@ -379,6 +379,22 @@
               </div>
               <p class="storage-note" id="storageNote"></p>
             </article>
+            <article class="card">
+              <div class="card-head"><div><h2>GitHub sinxronizasiya</h2><p>Məlumatları GitHub repositoriyasına avtomatik yazın</p></div></div>
+              <form class="form" id="githubSyncForm">
+                <label class="field"><span>GitHub Token (PAT)</span><input id="githubTokenInput" type="password" placeholder="ghp_... (fine-grained PAT, Contents write)" autocomplete="off"></label>
+                <label class="field"><span>Repo (owner/repo)</span><input id="githubRepoInput" type="text" placeholder="zleiwy-jpg/renarejebova" readonly></label>
+                <label class="field"><span>Branch</span><input id="githubBranchInput" type="text" placeholder="main" readonly></label>
+                <label class="field"><span>Fayl yolu</span><input id="githubPathInput" type="text" placeholder="data/db.json" readonly></label>
+                <div class="form-row">
+                  <label class="field checkbox-field"><input id="githubAutoSyncInput" type="checkbox"><span>Avtomatik sinxronizasiya (dəyişiklikdə yaz)</span></label>
+                </div>
+                <div class="form-row">
+                  <button class="btn btn-primary" type="button" id="githubPushBtn">GitHub-a yaz</button>
+                  <span id="githubSyncStatus" class="sync-status"></span>
+                </div>
+              </form>
+            </article>
           </div>
         </section>
       </main>
@@ -404,7 +420,7 @@
         </div>
         <div class="form-row">
           <label class="field"><span>Cavab sayı</span><input id="studentAnswers" type="number" min="0" step="1" value="0"></label>
-          <label class="field"><span>Reytinq (0–100)</span><input id="studentRating" type="number" min="0" max="100" step="1" value="0"></label>
+          <label class="field"><span>Reytinq faizi (%)</span><input id="studentRating" type="number" min="0" max="100" step="1" value="0"><small class="field-hint">Hər şagird üçün fərqli faiz yazın.</small></label>
         </div>
         <p class="form-error" id="studentError" role="alert" hidden></p>
         <div class="modal-actions">
